@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Daxium">
+  <circle cx="32" cy="32" r="29" fill="none" stroke="#5a8fc7" stroke-width="3.4"/>
+  <path fill="#3f7bbf" fill-rule="evenodd"
+        d="M19 18 H29 A14 14 0 0 1 29 46 H19 Z
+           M25 26 H28 A8 8 0 0 1 28 38 H25 Z"/>
+  <circle cx="43" cy="30" r="3.4" fill="#4f86c4"/>
+  <circle cx="47" cy="36" r="2.7" fill="#7ba9d6" opacity="0.9"/>
+  <circle cx="42" cy="40" r="2.2" fill="#9cc0e3" opacity="0.85"/>
+  <circle cx="46" cy="44" r="1.7" fill="#b9d4ec" opacity="0.8"/>
+  <circle cx="40" cy="46" r="1.4" fill="#cfe1f2" opacity="0.75"/>
+</svg>
