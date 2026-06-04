@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/*
+  FGCL brand theme — one dark theme locked for the whole site.
+  Palette (from brief):
+    - Bleu nuit  : navy bases (page + surfaces)
+    - Bleu électrique : digital effect color (particles, lines, glows)
+    - Jaune FGCL : single brand accent (CTAs, active nav, key points)
+*/
+@theme {
+  --color-navy-950: #050912;
+  --color-navy-900: #080d1c;
+  --color-navy-850: #0b1228;
+  --color-navy-800: #0e1730;
+  --color-navy-700: #142146;
+  --color-navy-600: #1d2c5c;
+
+  --color-electric-400: #5b9bff;
+  --color-electric-500: #3b82f6;
+  --color-electric-600: #2563eb;
+  --color-glow-300: #7dd3fc;
+  --color-glow-400: #38bdf8;
+
+  --color-fgcl-500: #ffcb05;
+  --color-fgcl-400: #ffd84a;
+  --color-fgcl-600: #e0ad00;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-navy-950);
+  color: rgb(226 232 240);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Subtle technical grid used behind institutional sections */
+.bg-tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Radial blue glow helper */
+.glow-blue {
+  background: radial-gradient(closest-side, rgba(59, 130, 246, 0.35), transparent);
+}
+.glow-yellow {
+  background: radial-gradient(closest-side, rgba(255, 203, 5, 0.28), transparent);
+}
+
+/* Fixed grain/scrim layer is handled per component. */
+
+::selection {
+  background: rgba(255, 203, 5, 0.25);
+  color: #fff;
+}
+
+/* Infinite logo marquee (Section 4 — Ils nous font confiance) */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-rtl 32s linear infinite;
+}
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
