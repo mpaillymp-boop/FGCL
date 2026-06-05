@@ -25,6 +25,9 @@
   --color-fgcl-400: #ffd84a;
   --color-fgcl-600: #e0ad00;
 
+  /* Brand marine — used for titles and dark text on light sections */
+  --color-ink: #04264a;
+
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }

@@ -38,7 +38,7 @@ export default function HomePage() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-electric-500/10 text-electric-600 transition-colors group-hover:bg-fgcl-500/20 group-hover:text-fgcl-600">
                   <Icon name={e.icon} size={24} />
                 </span>
-                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-navy-950">
+                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-ink">
                   {e.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{e.text}</p>
@@ -73,7 +73,7 @@ export default function HomePage() {
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-electric-500/10 text-electric-600">
                   <Icon name={m.icon} size={22} />
                 </span>
-                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-base font-semibold text-navy-950">
+                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-base font-semibold text-ink">
                   {m.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{m.text}</p>
@@ -119,7 +119,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-16">
-            <h3 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-navy-950">
+            <h3 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-ink">
               Pourquoi passer au digital ?
             </h3>
             <RevealGroup className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -128,7 +128,7 @@ export default function HomePage() {
                   key={b}
                   className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
                 >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-fgcl-500 text-navy-950">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-fgcl-500 text-ink">
                     <Check size={14} strokeWidth={2.5} />
                   </span>
                   <span className="text-sm text-slate-700">{b}</span>

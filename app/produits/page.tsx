@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowUpRight, Activity, Wrench, ClipboardCheck, RotateCcw } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { FamocoExploded } from "@/components/site/famoco-exploded";
@@ -62,17 +63,17 @@ export default function ProduitsPage() {
                   rel="noopener noreferrer"
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-electric-500/50 hover:shadow-md"
                 >
-                  <div className="relative flex h-52 items-center justify-center bg-slate-50 p-6">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                  <div className="relative h-52 bg-slate-50">
+                    <Image
                       src={p.img}
                       alt={`Terminal ${p.name}`}
-                      loading="lazy"
-                      className="relative max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <div className="flex flex-1 flex-col border-t border-slate-200 p-6">
-                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-navy-950">
+                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-ink">
                       {p.name}
                     </h3>
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
@@ -119,7 +120,7 @@ export default function ProduitsPage() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-electric-500/10 text-electric-600">
                     <StepIcon size={24} strokeWidth={1.75} />
                   </span>
-                  <span className="text-sm font-semibold text-navy-950">{s.label}</span>
+                  <span className="text-sm font-semibold text-ink">{s.label}</span>
                 </RevealItem>
               );
             })}

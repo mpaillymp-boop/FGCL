@@ -26,7 +26,7 @@ export function PrimaryCTA({
   external?: boolean;
 }) {
   const cls =
-    "group inline-flex items-center justify-center gap-2 rounded-lg bg-fgcl-500 px-6 py-3.5 text-sm font-semibold text-navy-950 shadow-lg shadow-fgcl-500/10 transition-all hover:bg-fgcl-400 active:scale-[0.97]";
+    "group inline-flex items-center justify-center gap-2 rounded-lg bg-fgcl-500 px-6 py-3.5 text-sm font-semibold text-ink shadow-lg shadow-fgcl-500/10 transition-all hover:bg-fgcl-400 active:scale-[0.97]";
   const inner = (
     <>
       {children}
@@ -62,7 +62,7 @@ export function GhostCTA({
 }) {
   const cls =
     tone === "light"
-      ? "inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-navy-950 transition-all hover:border-electric-500 hover:bg-slate-50 active:scale-[0.97]"
+      ? "inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-all hover:border-electric-500 hover:bg-slate-50 active:scale-[0.97]"
       : "inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-electric-500/60 hover:bg-white/10 active:scale-[0.97]";
   return external ? (
     <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
@@ -94,7 +94,7 @@ export function SectionHeading({
         align === "center" && "mx-auto text-center"
       )}
     >
-      <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold leading-[1.1] tracking-tight text-navy-950 sm:text-4xl md:text-5xl">
+      <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
         {title}
         {highlight && <span className="text-electric-600"> {highlight}</span>}
       </h2>

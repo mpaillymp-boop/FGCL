@@ -40,12 +40,12 @@ export default function RessourcesPage() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-navy-950/25 transition-colors group-hover:bg-navy-950/10" />
-                    <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-fgcl-500 text-navy-950 shadow-lg transition-transform group-hover:scale-110">
+                    <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-fgcl-500 text-ink shadow-lg transition-transform group-hover:scale-110">
                       <Play size={22} className="ml-0.5" fill="currentColor" />
                     </span>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-base font-semibold leading-snug text-navy-950">
+                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-base font-semibold leading-snug text-ink">
                       {v.title}
                     </h3>
                     <p className="mt-2 text-sm text-slate-500">Voir sur YouTube</p>

@@ -37,7 +37,7 @@ export default function ServicesPage() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-electric-500/10 text-electric-600 transition-colors group-hover:bg-fgcl-500/20 group-hover:text-fgcl-600">
                   <Icon name={s.icon} size={24} />
                 </span>
-                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-navy-950">
+                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-ink">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{s.text}</p>
@@ -63,12 +63,12 @@ export default function ServicesPage() {
                 className="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
               >
                 <div className="flex flex-col items-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-fgcl-500 text-navy-950">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-fgcl-500 text-ink">
                     <Icon name={step.icon} size={22} />
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-navy-950">
+                  <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-ink">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">

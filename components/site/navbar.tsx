@@ -35,9 +35,9 @@ export function Navbar() {
         <Link
           href="/"
           aria-label="FGCL, accueil"
-          className={cn("shrink-0", scrolled ? "text-navy-950" : "text-white")}
+          className="shrink-0"
         >
-          <Wordmark />
+          <Wordmark variant={scrolled ? "color" : "white"} />
         </Link>
 
         {/* Desktop nav — single line */}
@@ -52,10 +52,10 @@ export function Navbar() {
                     "relative py-1 text-sm font-medium transition-colors",
                     active
                       ? scrolled
-                        ? "text-navy-950"
+                        ? "text-ink"
                         : "text-white"
                       : scrolled
-                        ? "text-slate-600 hover:text-navy-950"
+                        ? "text-slate-600 hover:text-ink"
                         : "text-slate-200 hover:text-white"
                   )}
                 >
@@ -74,7 +74,7 @@ export function Navbar() {
 
         <Link
           href="/contact"
-          className="hidden rounded-lg bg-fgcl-500 px-4 py-2 text-sm font-semibold text-navy-950 transition-transform hover:bg-fgcl-400 active:scale-[0.97] lg:inline-flex"
+          className="hidden rounded-lg bg-fgcl-500 px-4 py-2 text-sm font-semibold text-ink transition-transform hover:bg-fgcl-400 active:scale-[0.97] lg:inline-flex"
         >
           Parlons de votre projet
         </Link>
@@ -87,7 +87,7 @@ export function Navbar() {
           aria-expanded={open}
           className={cn(
             "inline-flex h-10 w-10 items-center justify-center rounded-lg lg:hidden",
-            scrolled ? "text-navy-950 hover:bg-slate-100" : "text-white hover:bg-white/10"
+            scrolled ? "text-ink hover:bg-slate-100" : "text-white hover:bg-white/10"
           )}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -114,7 +114,7 @@ export function Navbar() {
                       className={cn(
                         "block rounded-lg px-3 py-2.5 text-base",
                         active
-                          ? "border-l-2 border-fgcl-500 bg-slate-50 font-semibold text-navy-950"
+                          ? "border-l-2 border-fgcl-500 bg-slate-50 font-semibold text-ink"
                           : "text-slate-600 hover:bg-slate-50"
                       )}
                     >
@@ -127,7 +127,7 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg bg-fgcl-500 px-3 py-2.5 text-center font-semibold text-navy-950"
+                  className="block rounded-lg bg-fgcl-500 px-3 py-2.5 text-center font-semibold text-ink"
                 >
                   Parlons de votre projet
                 </Link>

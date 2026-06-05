@@ -62,8 +62,8 @@ export default function AProposPage() {
           <Reveal delay={0.1} className="relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://picsum.photos/seed/fgcl-team-douala-tech/1200/900"
-              alt="Équipe FGCL au travail sur des solutions numériques à Douala"
+              src="https://res.cloudinary.com/hm3mec8bl/image/upload/v1654012381/g1lefrjyzaj0ihrmapzi.jpg"
+              alt="FGCL — solutions numériques pour les entreprises en Afrique centrale"
               className="relative w-full rounded-2xl border border-slate-200 object-cover shadow-xl"
             />
           </Reveal>

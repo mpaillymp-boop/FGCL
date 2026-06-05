@@ -37,7 +37,7 @@ export default function ContactPage() {
               </span>
               <span>
                 <span className="block text-sm text-slate-500">Appelez-nous</span>
-                <span className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-navy-950">
+                <span className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-ink">
                   {CONTACT.phone}
                 </span>
               </span>
@@ -49,14 +49,14 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:border-fgcl-500"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-fgcl-500 text-navy-950">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-fgcl-500 text-ink">
                 <MapPin size={20} strokeWidth={1.75} />
               </span>
               <span className="flex-1">
                 <span className="block text-sm text-slate-500">
                   Venez nous rencontrer
                 </span>
-                <span className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-navy-950">
+                <span className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-ink">
                   Bonanjo, Douala
                 </span>
                 <span className="mt-1 flex items-center gap-1.5 text-sm text-electric-600">

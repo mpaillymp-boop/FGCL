@@ -53,7 +53,7 @@ export function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 placeholder:text-slate-400 outline-none transition-colors focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20";
+    "w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-ink placeholder:text-slate-400 outline-none transition-colors focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20";
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
@@ -65,10 +65,10 @@ export function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center gap-4 py-10 text-center"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-fgcl-500 text-navy-950">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-fgcl-500 text-ink">
               <CheckCircle2 size={30} />
             </span>
-            <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-navy-950">
+            <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-ink">
               Votre demande est prête
             </h3>
             <p className="max-w-sm text-sm text-slate-600">
@@ -141,7 +141,7 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-fgcl-500 px-6 py-3.5 text-sm font-semibold text-navy-950 transition-all hover:bg-fgcl-400 active:scale-[0.98] disabled:opacity-70 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-fgcl-500 px-6 py-3.5 text-sm font-semibold text-ink transition-all hover:bg-fgcl-400 active:scale-[0.98] disabled:opacity-70 sm:w-auto"
             >
               {status === "submitting" && <Loader2 size={16} className="animate-spin" />}
               Envoyer ma demande
