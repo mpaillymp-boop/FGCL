@@ -30,9 +30,9 @@ export default function ProduitsPage() {
       />
 
       {/* Intro */}
-      <section className="bg-navy-900 py-16 md:py-20">
+      <section className="bg-white py-16 md:py-20">
         <Container>
-          <Reveal className="max-w-3xl text-base leading-relaxed text-slate-300">
+          <Reveal className="max-w-3xl text-base leading-relaxed text-slate-600">
             <p>
               Famoco est une entreprise française spécialisée dans les terminaux
               mobiles sécurisés dédiés aux usages professionnels. FGCL accompagne
@@ -43,11 +43,11 @@ export default function ProduitsPage() {
         </Container>
       </section>
 
-      {/* Vue éclatée au scroll */}
+      {/* Vue éclatée au scroll (bande bleu nuit) */}
       <FamocoExploded />
 
       {/* Grille produits */}
-      <section id="terminaux" className="border-y border-white/5 bg-navy-950 py-20 md:py-28">
+      <section id="terminaux" className="border-y border-slate-200 bg-slate-50 py-20 md:py-28">
         <Container>
           <SectionHeading
             title="Nos terminaux"
@@ -60,13 +60,9 @@ export default function ProduitsPage() {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-navy-850 transition-all hover:-translate-y-1 hover:border-electric-500/40"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-electric-500/50 hover:shadow-md"
                 >
-                  <div className="relative flex h-52 items-center justify-center bg-gradient-to-b from-navy-800 to-navy-850 p-6">
-                    <div
-                      aria-hidden
-                      className="glow-blue pointer-events-none absolute inset-0 opacity-20"
-                    />
+                  <div className="relative flex h-52 items-center justify-center bg-slate-50 p-6">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={p.img}
@@ -75,14 +71,14 @@ export default function ProduitsPage() {
                       className="relative max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-white">
+                  <div className="flex flex-1 flex-col border-t border-slate-200 p-6">
+                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-navy-950">
                       {p.name}
                     </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
                       {p.text}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-fgcl-500">
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-electric-600">
                       Voir le produit
                       <ArrowUpRight
                         size={16}
@@ -98,14 +94,14 @@ export default function ProduitsPage() {
       </section>
 
       {/* Repair Center */}
-      <section className="bg-navy-900 py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading
               title="Repair Center Famoco en Afrique centrale"
               lead="FGCL dispose d'un centre de réparation dédié aux terminaux Famoco : maintenance, diagnostic, réparation et suivi des équipements utilisés sur le terrain."
             />
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600">
               Notre objectif : garantir la continuité des opérations de nos clients
               grâce à un service de proximité, réactif et adapté aux contraintes
               locales.
@@ -118,12 +114,12 @@ export default function ProduitsPage() {
               return (
                 <RevealItem
                   key={s.label}
-                  className="flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-navy-850 p-7 text-center"
+                  className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-7 text-center"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-electric-500/12 text-glow-400">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-electric-500/10 text-electric-600">
                     <StepIcon size={24} strokeWidth={1.75} />
                   </span>
-                  <span className="text-sm font-semibold text-white">{s.label}</span>
+                  <span className="text-sm font-semibold text-navy-950">{s.label}</span>
                 </RevealItem>
               );
             })}
@@ -132,7 +128,7 @@ export default function ProduitsPage() {
       </section>
 
       {/* Tags NFC / RFID intro */}
-      <section className="border-t border-white/5 bg-navy-950 py-20 md:py-24">
+      <section className="border-t border-slate-200 bg-slate-50 py-20 md:py-24">
         <Container>
           <SectionHeading
             title="Tags NFC & RFID personnalisés"
@@ -141,7 +137,7 @@ export default function ProduitsPage() {
         </Container>
       </section>
 
-      {/* Flux de données NFC au scroll */}
+      {/* Flux de données NFC au scroll (bande bleu nuit) */}
       <NfcFlow />
     </>
   );

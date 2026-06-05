@@ -18,6 +18,9 @@ export const CONTACT = {
   phoneHref: "tel:+237243044595",
   address: "Bonanjo, Douala",
   cityFull: "Bonanjo, Douala, Cameroun",
+  addressFull: "2MQQ+3WC Plateau, Rue Joss, Douala, Cameroun",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=2MQQ%2B3WC%20Plateau%2C%20Rue%20Joss%2C%20Douala%2C%20Cameroun",
   lat: 4.03752,
   lng: 9.68975,
 };

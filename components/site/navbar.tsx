@@ -27,12 +27,16 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-white/5 bg-navy-950/80 backdrop-blur-xl"
+          ? "border-b border-slate-200 bg-white/90 backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link href="/" className="shrink-0" aria-label="FGCL, accueil">
+        <Link
+          href="/"
+          aria-label="FGCL, accueil"
+          className={cn("shrink-0", scrolled ? "text-navy-950" : "text-white")}
+        >
           <Wordmark />
         </Link>
 
@@ -46,7 +50,13 @@ export function Navbar() {
                   href={link.href}
                   className={cn(
                     "relative py-1 text-sm font-medium transition-colors",
-                    active ? "text-white" : "text-slate-300 hover:text-white"
+                    active
+                      ? scrolled
+                        ? "text-navy-950"
+                        : "text-white"
+                      : scrolled
+                        ? "text-slate-600 hover:text-navy-950"
+                        : "text-slate-200 hover:text-white"
                   )}
                 >
                   {link.label}
@@ -75,7 +85,10 @@ export function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-200 hover:bg-white/5 lg:hidden"
+          className={cn(
+            "inline-flex h-10 w-10 items-center justify-center rounded-lg lg:hidden",
+            scrolled ? "text-navy-950 hover:bg-slate-100" : "text-white hover:bg-white/10"
+          )}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -88,7 +101,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-t border-white/5 bg-navy-950/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 py-4">
               {NAV_LINKS.map((link) => {
@@ -101,8 +114,8 @@ export function Navbar() {
                       className={cn(
                         "block rounded-lg px-3 py-2.5 text-base",
                         active
-                          ? "border-l-2 border-fgcl-500 bg-white/5 font-semibold text-white"
-                          : "text-slate-300 hover:bg-white/5"
+                          ? "border-l-2 border-fgcl-500 bg-slate-50 font-semibold text-navy-950"
+                          : "text-slate-600 hover:bg-slate-50"
                       )}
                     >
                       {link.label}

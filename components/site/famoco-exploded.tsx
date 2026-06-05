@@ -36,8 +36,8 @@ function Layer({
   progress: MotionValue<number>;
   reduce: boolean;
 }) {
-  const stacked = i * 9;
-  const spread = (i - (LAYERS.length - 1) / 2) * 84;
+  const stacked = i * 10;
+  const spread = (i - (LAYERS.length - 1) / 2) * 82;
   const y = useTransform(progress, [0, 0.5, 1], [stacked, spread, stacked]);
   const labelOpacity = useTransform(progress, [0.3, 0.5, 0.72], [0, 1, 0]);
   const item = LAYERS[i];
@@ -45,8 +45,8 @@ function Layer({
 
   return (
     <motion.div
-      style={reduce ? { top: spread } : { y }}
-      className="absolute left-1/2 flex w-[260px] -translate-x-1/2 items-center"
+      style={reduce ? { y: spread } : { y }}
+      className="absolute left-1/2 top-[calc(50%-32px)] -ml-[130px] flex w-[260px] items-center"
     >
       <div className="flex h-16 w-full items-center gap-3 rounded-2xl border border-white/10 bg-navy-800/90 px-4 shadow-xl shadow-navy-950/50 backdrop-blur-sm">
         <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-electric-500/15 text-glow-400">
@@ -75,13 +75,15 @@ export function FamocoExploded() {
   const ctaY = useTransform(scrollYProgress, [0.82, 0.96], [16, 0]);
 
   return (
-    <section ref={ref} className="relative h-[300vh] bg-navy-900">
-      <div className="sticky top-0 flex h-[100dvh] flex-col items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative h-[300vh] bg-navy-950">
+      <div className="sticky top-0 flex h-[100dvh] flex-col overflow-hidden">
         <div
           aria-hidden
           className="glow-blue pointer-events-none absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 opacity-25"
         />
-        <Container className="relative z-10 text-center">
+
+        {/* Heading — anchored at the top, separate from the animation stage */}
+        <Container className="relative z-10 shrink-0 pt-28 pb-6 text-center">
           <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Anatomie d&apos;un terminal Famoco
           </h2>
@@ -91,18 +93,19 @@ export function FamocoExploded() {
           </p>
         </Container>
 
-        <div className="relative mt-14 h-[440px] w-full">
+        {/* Stage — fills remaining height; layers are centered here */}
+        <div className="relative w-full flex-1">
           {LAYERS.map((_, i) => (
             <Layer key={i} i={i} progress={scrollYProgress} reduce={!!reduce} />
           ))}
-        </div>
 
-        <motion.div
-          style={reduce ? undefined : { opacity: ctaOpacity, y: ctaY }}
-          className="relative z-10"
-        >
-          <PrimaryCTA href="#terminaux">Découvrir nos terminaux Famoco</PrimaryCTA>
-        </motion.div>
+          <motion.div
+            style={reduce ? undefined : { opacity: ctaOpacity, y: ctaY }}
+            className="absolute inset-x-0 bottom-8 z-10 flex justify-center"
+          >
+            <PrimaryCTA href="#terminaux">Découvrir nos terminaux Famoco</PrimaryCTA>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

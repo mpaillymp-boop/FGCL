@@ -25,7 +25,7 @@ export function Wordmark({ className = "" }: { className?: string }) {
           <circle r="3" fill="#ffcb05" />
         </g>
       </svg>
-      <span className="text-lg font-bold tracking-[-0.01em] text-white font-[family-name:var(--font-space-grotesk)]">
+      <span className="text-lg font-bold tracking-[-0.01em] text-current font-[family-name:var(--font-space-grotesk)]">
         FGCL
       </span>
     </span>

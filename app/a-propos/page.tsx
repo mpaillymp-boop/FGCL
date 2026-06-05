@@ -38,20 +38,21 @@ export default function AProposPage() {
       />
 
       {/* Qui sommes-nous */}
-      <section className="bg-navy-900 py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading title="Qui sommes-nous ?" />
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-300">
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-600">
               <p>
-                Basée à Douala, FGCL accompagne entreprises et administrations dans
-                la traçabilité, la digitalisation des processus métiers,
-                l&apos;optimisation opérationnelle, l&apos;infogérance, la sécurité,
-                l&apos;infrastructure et le matériel informatique.
+                Basée à Douala (Cameroun), FGCL accompagne entreprises et
+                administrations dans la traçabilité, la digitalisation des
+                processus métiers, l&apos;optimisation opérationnelle, ainsi que
+                l&apos;infogérance, la sécurité, l&apos;infrastructure et le matériel
+                informatique.
               </p>
               <p>
-                En s&apos;appuyant sur des plateformes no-code comme Daxium et des
-                terminaux sécurisés comme Famoco, nous rendons accessible une
+                En s&apos;appuyant sur la plateforme no-code de Daxium et les
+                terminaux sécurisés de Famoco, nous rendons accessible une
                 expérience numérique sécurisée, simple et performante, pensée pour
                 les réalités du terrain en Afrique centrale.
               </p>
@@ -59,22 +60,18 @@ export default function AProposPage() {
           </Reveal>
 
           <Reveal delay={0.1} className="relative">
-            <div
-              aria-hidden
-              className="glow-blue pointer-events-none absolute -inset-6 opacity-30"
-            />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://picsum.photos/seed/fgcl-team-douala-tech/1200/900"
               alt="Équipe FGCL au travail sur des solutions numériques à Douala"
-              className="relative w-full rounded-2xl border border-white/10 object-cover shadow-2xl shadow-navy-950/60"
+              className="relative w-full rounded-2xl border border-slate-200 object-cover shadow-xl"
             />
           </Reveal>
         </Container>
       </section>
 
       {/* Partenaires technologiques */}
-      <section className="border-y border-white/5 bg-navy-950 py-20 md:py-28">
+      <section className="border-y border-slate-200 bg-slate-50 py-20 md:py-28">
         <Container>
           <SectionHeading
             title="Nos partenaires technologiques"
@@ -84,21 +81,17 @@ export default function AProposPage() {
             {PARTNERS.map((p) => (
               <RevealItem
                 key={p.name}
-                className="flex flex-col rounded-2xl border border-white/10 bg-navy-850 p-8"
+                className="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
               >
-                <span className="flex h-16 w-fit items-center justify-center rounded-xl bg-white px-5 py-3 shadow-sm">
+                <span className="flex h-16 w-fit items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.logo}
-                    alt={`Logo ${p.name}`}
-                    className="h-9 w-auto"
-                  />
+                  <img src={p.logo} alt={`Logo ${p.name}`} className="h-9 w-auto" />
                 </span>
-                <p className="mt-6 flex-1 text-base leading-relaxed text-slate-300">
+                <p className="mt-6 flex-1 text-base leading-relaxed text-slate-600">
                   {p.text}
                 </p>
                 <div className="mt-7">
-                  <GhostCTA href={p.href} external>
+                  <GhostCTA href={p.href} external tone="light">
                     {p.cta}
                   </GhostCTA>
                 </div>
@@ -109,16 +102,16 @@ export default function AProposPage() {
       </section>
 
       {/* Chiffres clés */}
-      <section className="relative overflow-hidden bg-navy-900 py-20 md:py-24">
-        <div className="bg-tech-grid pointer-events-none absolute inset-0 opacity-40" />
+      <section className="relative overflow-hidden bg-white py-20 md:py-24">
+        <div className="bg-tech-grid pointer-events-none absolute inset-0 opacity-60" />
         <Container className="relative">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {KEY_FIGURES.map((f) => (
               <Reveal key={f.label} className="text-center sm:text-left">
-                <div className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold tracking-tight text-fgcl-500 md:text-6xl">
+                <div className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold tracking-tight text-electric-600 md:text-6xl">
                   <Counter value={f.value} prefix={f.prefix} suffix={f.suffix} />
                 </div>
-                <p className="mt-3 text-sm text-slate-300">{f.label}</p>
+                <p className="mt-3 text-sm text-slate-600">{f.label}</p>
               </Reveal>
             ))}
           </div>

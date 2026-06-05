@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="relative z-10 border-t border-white/5 bg-navy-950">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
         <div className="max-w-sm">
-          <Wordmark />
+          <Wordmark className="text-white" />
           <p className="mt-4 text-sm leading-relaxed text-slate-400">
             Des solutions numériques fiables, accessibles et adaptées aux réalités
             opérationnelles des entreprises et administrations en Afrique centrale.

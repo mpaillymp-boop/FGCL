@@ -53,10 +53,10 @@ export function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-electric-500 focus:ring-2 focus:ring-electric-500/30";
+    "w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 placeholder:text-slate-400 outline-none transition-colors focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20";
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-navy-850 p-6 sm:p-8">
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
       <AnimatePresence mode="wait">
         {status === "success" ? (
           <motion.div
@@ -65,19 +65,19 @@ export function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center gap-4 py-10 text-center"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-fgcl-500/15 text-fgcl-500">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-fgcl-500 text-navy-950">
               <CheckCircle2 size={30} />
             </span>
-            <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-white">
+            <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-navy-950">
               Votre demande est prête
             </h3>
-            <p className="max-w-sm text-sm text-slate-400">
+            <p className="max-w-sm text-sm text-slate-600">
               Votre logiciel de messagerie s&apos;est ouvert avec votre demande.
               Vous pouvez aussi nous appeler directement.
             </p>
             <a
               href={CONTACT.phoneHref}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-fgcl-500 hover:text-fgcl-400"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-electric-600 hover:text-electric-500"
             >
               <Phone size={16} />
               {CONTACT.phone}
@@ -119,7 +119,7 @@ export function ContactForm() {
             />
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="project" className="text-sm font-medium text-slate-200">
+              <label htmlFor="project" className="text-sm font-medium text-slate-700">
                 Votre projet ou votre besoin
               </label>
               <textarea
@@ -132,7 +132,7 @@ export function ContactForm() {
                 className={inputClass + " resize-none"}
               />
               {errors.project && (
-                <p id="project-error" className="text-xs text-red-400">
+                <p id="project-error" className="text-xs text-red-600">
                   {errors.project}
                 </p>
               )}
@@ -148,7 +148,7 @@ export function ContactForm() {
             </button>
 
             {status === "error" && (
-              <p className="text-sm text-red-400">
+              <p className="text-sm text-red-600">
                 Une erreur est survenue. Appelez-nous au {CONTACT.phone}.
               </p>
             )}
@@ -180,7 +180,7 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-sm font-medium text-slate-200">
+      <label htmlFor={id} className="text-sm font-medium text-slate-700">
         {label}
         {optional && <span className="ml-1 text-xs text-slate-500">(optionnel)</span>}
       </label>
@@ -194,7 +194,7 @@ function Field({
         className={className}
       />
       {error && (
-        <p id={`${id}-error`} className="text-xs text-red-400">
+        <p id={`${id}-error`} className="text-xs text-red-600">
           {error}
         </p>
       )}

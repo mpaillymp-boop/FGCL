@@ -48,18 +48,22 @@ export function PrimaryCTA({
   );
 }
 
-/** Secondary ghost CTA with a visible stroke (a11y over the dark field). */
+/** Secondary ghost CTA. `tone` adapts the stroke/text to a dark or light bg. */
 export function GhostCTA({
   href,
   children,
   external = false,
+  tone = "dark",
 }: {
   href: string;
   children: ReactNode;
   external?: boolean;
+  tone?: "dark" | "light";
 }) {
   const cls =
-    "inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-electric-500/60 hover:bg-white/10 active:scale-[0.97]";
+    tone === "light"
+      ? "inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-navy-950 transition-all hover:border-electric-500 hover:bg-slate-50 active:scale-[0.97]"
+      : "inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-electric-500/60 hover:bg-white/10 active:scale-[0.97]";
   return external ? (
     <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
       {children}
@@ -90,12 +94,12 @@ export function SectionHeading({
         align === "center" && "mx-auto text-center"
       )}
     >
-      <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl">
+      <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold leading-[1.1] tracking-tight text-navy-950 sm:text-4xl md:text-5xl">
         {title}
-        {highlight && <span className="text-fgcl-500"> {highlight}</span>}
+        {highlight && <span className="text-electric-600"> {highlight}</span>}
       </h2>
       {lead && (
-        <p className="mt-5 text-base leading-relaxed text-slate-400 md:text-lg">
+        <p className="mt-5 text-base leading-relaxed text-slate-600 md:text-lg">
           {lead}
         </p>
       )}

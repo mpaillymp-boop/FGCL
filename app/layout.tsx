@@ -38,7 +38,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={`${spaceGrotesk.variable} ${outfit.variable}`}>
-      <body className="min-h-[100dvh] bg-navy-950 text-slate-200 antialiased">
+      <body className="min-h-[100dvh] bg-white text-slate-800 antialiased">
         {/* Fixed grain/scrim layer, pointer-events off, never on a scroll container */}
         <div
           aria-hidden

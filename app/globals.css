@@ -30,7 +30,7 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -38,8 +38,8 @@ html {
 }
 
 body {
-  background-color: var(--color-navy-950);
-  color: rgb(226 232 240);
+  background-color: #ffffff;
+  color: #1e293b;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -51,15 +51,22 @@ body {
   }
 }
 
-/* Subtle technical grid used behind institutional sections */
+/* Technical grid — light variant (behind dark immersive bands it uses the
+   blue-on-dark version via .bg-tech-grid-dark). */
 .bg-tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.bg-tech-grid-dark {
   background-image:
     linear-gradient(to right, rgba(59, 130, 246, 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
-/* Radial blue glow helper */
+/* Radial glow helpers (used inside the dark immersive bands) */
 .glow-blue {
   background: radial-gradient(closest-side, rgba(59, 130, 246, 0.35), transparent);
 }
@@ -67,11 +74,9 @@ body {
   background: radial-gradient(closest-side, rgba(255, 203, 5, 0.28), transparent);
 }
 
-/* Fixed grain/scrim layer is handled per component. */
-
 ::selection {
-  background: rgba(255, 203, 5, 0.25);
-  color: #fff;
+  background: rgba(255, 203, 5, 0.35);
+  color: #0b1228;
 }
 
 /* Infinite logo marquee (Section 4 — Ils nous font confiance) */

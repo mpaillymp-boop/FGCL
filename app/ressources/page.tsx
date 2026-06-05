@@ -20,7 +20,7 @@ export default function RessourcesPage() {
         lead="Des vidéos courtes pour comprendre la digitalisation des process, les applications no-code et le suivi terrain en temps réel."
       />
 
-      <section className="bg-navy-900 py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <Container>
           <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {RESOURCE_VIDEOS.map((v) => (
@@ -29,7 +29,7 @@ export default function RessourcesPage() {
                   href={`https://www.youtube.com/watch?v=${v.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block overflow-hidden rounded-2xl border border-white/10 bg-navy-850 transition-all hover:-translate-y-1 hover:border-electric-500/40"
+                  className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-electric-500/50 hover:shadow-md"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -39,16 +39,16 @@ export default function RessourcesPage() {
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-navy-950/40 transition-colors group-hover:bg-navy-950/20" />
+                    <div className="absolute inset-0 bg-navy-950/25 transition-colors group-hover:bg-navy-950/10" />
                     <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-fgcl-500 text-navy-950 shadow-lg transition-transform group-hover:scale-110">
                       <Play size={22} className="ml-0.5" fill="currentColor" />
                     </span>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-base font-semibold leading-snug text-white">
+                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-base font-semibold leading-snug text-navy-950">
                       {v.title}
                     </h3>
-                    <p className="mt-2 text-sm text-slate-400">Voir sur YouTube</p>
+                    <p className="mt-2 text-sm text-slate-500">Voir sur YouTube</p>
                   </div>
                 </a>
               </RevealItem>
