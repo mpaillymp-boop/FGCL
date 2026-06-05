@@ -15,7 +15,7 @@ export function Container({
   );
 }
 
-/** Primary brand CTA (yellow). Label is short, single-line at desktop. */
+/** Primary CTA (theme primary = X blue). */
 export function PrimaryCTA({
   href,
   children,
@@ -26,7 +26,7 @@ export function PrimaryCTA({
   external?: boolean;
 }) {
   const cls =
-    "group inline-flex items-center justify-center gap-2 rounded-lg bg-fgcl-500 px-6 py-3.5 text-sm font-semibold text-ink shadow-lg shadow-fgcl-500/10 transition-all hover:bg-fgcl-400 active:scale-[0.97]";
+    "group inline-flex items-center justify-center gap-2 rounded-[var(--radius)] bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-90 active:scale-[0.97]";
   const inner = (
     <>
       {children}
@@ -48,7 +48,7 @@ export function PrimaryCTA({
   );
 }
 
-/** Secondary ghost CTA. `tone` adapts the stroke/text to a dark or light bg. */
+/** Secondary ghost CTA. `tone` adapts to a light or dark background. */
 export function GhostCTA({
   href,
   children,
@@ -62,8 +62,8 @@ export function GhostCTA({
 }) {
   const cls =
     tone === "light"
-      ? "inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-all hover:border-electric-500 hover:bg-slate-50 active:scale-[0.97]"
-      : "inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-electric-500/60 hover:bg-white/10 active:scale-[0.97]";
+      ? "inline-flex items-center justify-center gap-2 rounded-[var(--radius)] border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary active:scale-[0.97]"
+      : "inline-flex items-center justify-center gap-2 rounded-[var(--radius)] border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.97]";
   return external ? (
     <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
       {children}
@@ -75,7 +75,7 @@ export function GhostCTA({
   );
 }
 
-/** Stacked section heading: title on top, optional lead below (no split-header). */
+/** Stacked section heading. */
 export function SectionHeading({
   title,
   lead,
@@ -88,18 +88,13 @@ export function SectionHeading({
   highlight?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "max-w-3xl",
-        align === "center" && "mx-auto text-center"
-      )}
-    >
-      <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
+    <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center")}>
+      <h2 className="text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-5xl">
         {title}
-        {highlight && <span className="text-electric-600"> {highlight}</span>}
+        {highlight && <span className="text-primary"> {highlight}</span>}
       </h2>
       {lead && (
-        <p className="mt-5 text-base leading-relaxed text-slate-600 md:text-lg">
+        <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
           {lead}
         </p>
       )}

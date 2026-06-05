@@ -1,35 +1,96 @@
 @import "tailwindcss";
 
-/*
-  FGCL brand theme — one dark theme locked for the whole site.
-  Palette (from brief):
-    - Bleu nuit  : navy bases (page + surfaces)
-    - Bleu électrique : digital effect color (particles, lines, glows)
-    - Jaune FGCL : single brand accent (CTAs, active nav, key points)
-*/
-@theme {
+/* ============================================================
+   THEME (X / Twitter-style) — light default, dark variant ready
+   ============================================================ */
+:root {
+  --card: #f7f8f8;
+  --ring: #1da1f2;
+  --input: #f7f9fa;
+  --muted: #e5e5e6;
+  --accent: #e3ecf6;
+  --border: #e1eaef;
+  --radius: 1.3rem;
+  --popover: #ffffff;
+  --primary: #1e9df1;
+  --secondary: #0f1419;
+  --background: #ffffff;
+  --foreground: #0f1419;
+  --destructive: #f4212e;
+  --card-foreground: #0f1419;
+  --muted-foreground: #5b7083;
+  --accent-foreground: #1e9df1;
+  --popover-foreground: #0f1419;
+  --primary-foreground: #ffffff;
+  --secondary-foreground: #ffffff;
+  --destructive-foreground: #ffffff;
+
+  /* Display/body fonts feed the existing var references (Open Sans). */
+  --font-space-grotesk: var(--font-open-sans), "Open Sans", sans-serif;
+  --font-outfit: var(--font-open-sans), "Open Sans", sans-serif;
+}
+
+.dark {
+  --card: #17181c;
+  --ring: #1da1f2;
+  --input: #22303c;
+  --muted: #181818;
+  --accent: #061622;
+  --border: #242628;
+  --popover: #000000;
+  --primary: #1c9cf0;
+  --secondary: #f0f3f4;
+  --background: #000000;
+  --foreground: #e7e9ea;
+  --destructive: #f4212e;
+  --card-foreground: #d9d9d9;
+  --muted-foreground: #72767a;
+  --accent-foreground: #1c9cf0;
+  --popover-foreground: #e7e9ea;
+  --primary-foreground: #ffffff;
+  --secondary-foreground: #0f1419;
+  --destructive-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* Legacy brand tokens kept so existing pages keep compiling */
   --color-navy-950: #050912;
   --color-navy-900: #080d1c;
   --color-navy-850: #0b1228;
   --color-navy-800: #0e1730;
   --color-navy-700: #142146;
   --color-navy-600: #1d2c5c;
-
   --color-electric-400: #5b9bff;
   --color-electric-500: #3b82f6;
   --color-electric-600: #2563eb;
   --color-glow-300: #7dd3fc;
   --color-glow-400: #38bdf8;
-
   --color-fgcl-500: #ffcb05;
   --color-fgcl-400: #ffd84a;
   --color-fgcl-600: #e0ad00;
-
-  /* Brand marine — used for titles and dark text on light sections */
   --color-ink: #04264a;
 
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-open-sans), "Open Sans", sans-serif;
 }
 
 :root {
@@ -41,9 +102,9 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: #1e293b;
-  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-open-sans), "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -54,42 +115,23 @@ body {
   }
 }
 
-/* Technical grid — light variant (behind dark immersive bands it uses the
-   blue-on-dark version via .bg-tech-grid-dark). */
+/* Technical grid (light) */
 .bg-tech-grid {
   background-image:
-    linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(30, 157, 241, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 157, 241, 0.06) 1px, transparent 1px);
   background-size: 56px 56px;
-}
-.bg-tech-grid-dark {
-  background-image:
-    linear-gradient(to right, rgba(59, 130, 246, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Radial glow helpers (used inside the dark immersive bands) */
-.glow-blue {
-  background: radial-gradient(closest-side, rgba(59, 130, 246, 0.35), transparent);
-}
-.glow-yellow {
-  background: radial-gradient(closest-side, rgba(255, 203, 5, 0.28), transparent);
 }
 
 ::selection {
-  background: rgba(255, 203, 5, 0.35);
-  color: #0b1228;
+  background: rgba(30, 157, 241, 0.2);
+  color: #0f1419;
 }
 
-/* Infinite logo marquee (Section 4 — Ils nous font confiance) */
+/* Infinite logo marquee */
 @keyframes marquee-rtl {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 .marquee-track {
   display: flex;

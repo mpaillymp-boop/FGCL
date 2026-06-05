@@ -1,21 +1,20 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 
-// A utility function for class names
-const cn = (...classes: Array<string | false | null | undefined>) =>
-  classes.filter(Boolean).join(" ");
-
-// The main hero component
+/**
+ * Aether-flow particle hero, adapted to the FGCL theme: white background with
+ * a blue (#1e9df1) particle network and dark on-light copy.
+ */
 const AetherFlowHero = () => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -27,7 +26,6 @@ const AetherFlowHero = () => {
       radius: 200,
     };
 
-    // Moved Particle class definition here to avoid initialization errors
     class Particle {
       x: number;
       y: number;
@@ -61,14 +59,9 @@ const AetherFlowHero = () => {
       }
 
       update() {
-        if (this.x > canvas!.width || this.x < 0) {
-          this.directionX = -this.directionX;
-        }
-        if (this.y > canvas!.height || this.y < 0) {
-          this.directionY = -this.directionY;
-        }
+        if (this.x > canvas!.width || this.x < 0) this.directionX = -this.directionX;
+        if (this.y > canvas!.height || this.y < 0) this.directionY = -this.directionY;
 
-        // Mouse collision detection
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
@@ -93,11 +86,11 @@ const AetherFlowHero = () => {
       const numberOfParticles = (canvas!.height * canvas!.width) / 9000;
       for (let i = 0; i < numberOfParticles; i++) {
         const size = Math.random() * 2 + 1;
-        const x = Math.random() * (innerWidth - size * 4) + size * 2;
-        const y = Math.random() * (innerHeight - size * 4) + size * 2;
+        const x = Math.random() * (canvas!.width - size * 4) + size * 2;
+        const y = Math.random() * (canvas!.height - size * 4) + size * 2;
         const directionX = Math.random() * 0.4 - 0.2;
         const directionY = Math.random() * 0.4 - 0.2;
-        const color = "rgba(191, 128, 255, 0.8)"; // Brighter purple
+        const color = "rgba(30, 157, 241, 0.85)"; // FGCL/X blue
         particles.push(new Particle(x, y, directionX, directionY, size, color));
       }
     }
@@ -111,26 +104,23 @@ const AetherFlowHero = () => {
     resizeCanvas();
 
     const connect = () => {
-      let opacityValue = 1;
       for (let a = 0; a < particles.length; a++) {
         for (let b = a; b < particles.length; b++) {
           const distance =
-            (particles[a].x - particles[b].x) * (particles[a].x - particles[b].x) +
-            (particles[a].y - particles[b].y) * (particles[a].y - particles[b].y);
+            (particles[a].x - particles[b].x) ** 2 +
+            (particles[a].y - particles[b].y) ** 2;
 
           if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-            opacityValue = 1 - distance / 20000;
+            const opacityValue = 1 - distance / 20000;
+            const dxm = particles[a].x - (mouse.x ?? -9999);
+            const dym = particles[a].y - (mouse.y ?? -9999);
+            const distMouse = Math.sqrt(dxm * dxm + dym * dym);
 
-            const dxMouseA = particles[a].x - (mouse.x ?? 0);
-            const dyMouseA = particles[a].y - (mouse.y ?? 0);
-            const distanceMouseA = Math.sqrt(dxMouseA * dxMouseA + dyMouseA * dyMouseA);
-
-            if (mouse.x && distanceMouseA < mouse.radius) {
-              ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+            if (mouse.x && distMouse < mouse.radius) {
+              ctx.strokeStyle = `rgba(15, 20, 25, ${opacityValue * 0.5})`;
             } else {
-              ctx.strokeStyle = `rgba(200, 150, 255, ${opacityValue})`;
+              ctx.strokeStyle = `rgba(30, 157, 241, ${opacityValue * 0.4})`;
             }
-
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particles[a].x, particles[a].y);
@@ -143,13 +133,10 @@ const AetherFlowHero = () => {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      // Set the background color inside the canvas draw loop
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, innerWidth, innerHeight);
-
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-      }
+      // White background each frame
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) particles[i].update();
       connect();
     };
 
@@ -157,7 +144,6 @@ const AetherFlowHero = () => {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
     };
-
     const handleMouseOut = () => {
       mouse.x = null;
       mouse.y = null;
@@ -182,34 +168,25 @@ const AetherFlowHero = () => {
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: {
-        delay: i * 0.2 + 0.5,
-        duration: 0.8,
-        ease: "easeInOut",
-      },
+      transition: { delay: i * 0.2 + 0.3, duration: 0.8, ease: "easeInOut" },
     }),
   };
 
   return (
-    // Removed bg-black from this container
-    <div className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-      {/* The canvas is now the primary background */}
-      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full"></canvas>
+    <div className="relative flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-hidden bg-background">
+      <canvas ref={canvasRef} className="absolute left-0 top-0 h-full w-full" />
 
-      {/* Overlay HTML Content */}
-      <div className="relative z-10 text-center p-6">
+      <div className="relative z-10 max-w-4xl p-6 text-center">
         <motion.div
           custom={0}
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className={cn(
-            "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6 backdrop-blur-sm"
-          )}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 backdrop-blur-sm"
         >
-          <Zap className="h-4 w-4 text-purple-400" />
-          <span className="text-sm font-medium text-gray-200">
-            Dynamic Rendering Engine
+          <Zap className="h-4 w-4 text-primary" />
+          <span className="text-sm font-medium text-foreground">
+            Solutions numériques · Afrique centrale
           </span>
         </motion.div>
 
@@ -218,9 +195,9 @@ const AetherFlowHero = () => {
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
+          className="mb-6 text-5xl font-bold tracking-tighter text-foreground md:text-7xl"
         >
-          Aether Flow
+          Digitaliser. Optimiser. <span className="text-primary">Sécuriser.</span>
         </motion.h1>
 
         <motion.p
@@ -228,17 +205,33 @@ const AetherFlowHero = () => {
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-2xl mx-auto text-lg text-gray-400 mb-10"
+          className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground"
         >
-          An intelligent, adaptive framework for creating fluid digital experiences
-          that feel alive and respond to user interaction in real-time.
+          FGCL conçoit des applications métier sur mesure pour optimiser vos
+          processus, fiabiliser vos données et piloter votre performance en temps
+          réel.
         </motion.p>
 
-        <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible">
-          <button className="px-8 py-4 bg-white text-black font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition-colors duration-300 flex items-center gap-2 mx-auto">
-            Explore the Engine
-            <ArrowRight className="h-5 w-5" />
-          </button>
+        <motion.div
+          custom={3}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center justify-center gap-3 sm:flex-row"
+        >
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 rounded-[var(--radius)] bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-90 active:scale-[0.98]"
+          >
+            Parlons de votre projet
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-border bg-card px-7 py-3.5 font-semibold text-foreground transition-all hover:border-primary active:scale-[0.98]"
+          >
+            Découvrir nos services
+          </Link>
         </motion.div>
       </div>
     </div>
