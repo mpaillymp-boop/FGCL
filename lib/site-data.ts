@@ -199,6 +199,31 @@ export const FAMOCO_PRODUCTS = [
   },
 ] as const;
 
+// Services IT (au-delà de la digitalisation) — présentés en cartes empilées
+export const IT_SERVICES = [
+  {
+    id: "expertise",
+    icon: "Cpu",
+    title: "Expertise",
+    accent: "blue",
+    text: "Nos experts sont constamment formés aux dernières technologies, ce qui leur permet de conseiller nos clients sur ce qui se fait de mieux. Nous couvrons un large spectre d'expertise IT : du réseau aux serveurs, de la sécurité à l'environnement bureautique, notre expertise couvre l'ensemble des équipements et solutions du système d'information.",
+  },
+  {
+    id: "infogerance",
+    icon: "ServerCog",
+    title: "Infogérance",
+    accent: "emerald",
+    text: "Externalisation globale ou partielle de la gestion de votre système d'information. Nous garantissons le fonctionnement, les délais d'intervention, le conseil et l'expertise, et nous gérons les autres fournisseurs IT. Vous pouvez désormais vous concentrer sur votre activité.",
+  },
+  {
+    id: "distribution",
+    icon: "PackageCheck",
+    title: "Distribution",
+    accent: "amber",
+    text: "Nous représentons les marques leaders du marché technologique, choisies et testées lors de nos veilles technologiques mensuelles. Seules sont retenues les marques proposant les produits les plus innovants ou à forte valeur ajoutée. Nous conseillons ainsi à nos clients une solution complète, matériels et logiciels.",
+  },
+] as const;
+
 // Services
 export const SERVICES = [
   {

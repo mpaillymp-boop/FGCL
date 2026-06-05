@@ -77,8 +77,8 @@ export function ParticleField({ className = "" }: { className?: string }) {
               Math.hypot(particles[a].x - mouse.x, particles[a].y - mouse.y) <
               mouse.radius;
             ctx.strokeStyle = near
-              ? `rgba(255, 203, 5, ${opacity})`
-              : `rgba(91, 155, 255, ${opacity})`;
+              ? `rgba(15, 20, 25, ${opacity})`
+              : `rgba(30, 157, 241, ${opacity * 0.8})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particles[a].x, particles[a].y);
@@ -94,8 +94,8 @@ export function ParticleField({ className = "" }: { className?: string }) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.brand ? p.size + 0.6 : p.size, 0, Math.PI * 2);
         ctx.fillStyle = p.brand
-          ? "rgba(255, 203, 5, 0.95)"
-          : "rgba(125, 211, 252, 0.85)";
+          ? "rgba(30, 157, 241, 0.95)"
+          : "rgba(30, 157, 241, 0.55)";
         ctx.fill();
       }
     };

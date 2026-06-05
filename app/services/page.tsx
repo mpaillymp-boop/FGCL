@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { Icon } from "@/components/site/icon";
+import { ItServicesStack } from "@/components/site/it-services-stack";
 import {
   Container,
   SectionHeading,
@@ -46,6 +47,9 @@ export default function ServicesPage() {
           </RevealGroup>
         </Container>
       </section>
+
+      {/* Nos services IT — cartes empilées au scroll */}
+      <ItServicesStack />
 
       {/* Accompagnement — déroulé */}
       <section className="relative overflow-hidden border-t border-border bg-card py-20 md:py-28">

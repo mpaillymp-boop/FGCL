@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Container } from "@/components/site/primitives";
+import { ParticleField } from "@/components/site/particle-field";
 
 /**
  * Compact inner-page hero (light theme).
@@ -17,7 +18,8 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden border-b border-border bg-card pt-32 pb-16 md:pt-40 md:pb-20">
-      <div className="bg-tech-grid pointer-events-none absolute inset-0 opacity-70" />
+      <div className="bg-tech-grid pointer-events-none absolute inset-0 opacity-40" />
+      <ParticleField className="opacity-70" />
       <Container className="relative z-10">
         {subtitle && (
           <p className="mb-4 text-sm font-semibold tracking-wide text-primary">
