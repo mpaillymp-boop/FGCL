@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Outfit } from "next/font/google";
+import { Sora, Outfit } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
 
-const spaceGrotesk = Space_Grotesk({
+// V2 display font (replaces Space Grotesk). The CSS variable name is kept so
+// existing `var(--font-space-grotesk)` references pick up the new font.
+const sora = Sora({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-space-grotesk",
@@ -37,7 +39,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${spaceGrotesk.variable} ${outfit.variable}`}>
+    <html lang="fr" className={`${sora.variable} ${outfit.variable}`}>
       <body className="min-h-[100dvh] bg-white text-slate-800 antialiased">
         {/* Fixed grain/scrim layer, pointer-events off, never on a scroll container */}
         <div
