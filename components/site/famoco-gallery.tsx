@@ -11,10 +11,10 @@ type Product = (typeof FAMOCO_PRODUCTS)[number];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.06 } },
 };
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.96 },
+  hidden: { opacity: 0, y: 18, scale: 0.96 },
   visible: {
     opacity: 1,
     y: 0,
@@ -77,18 +77,71 @@ function Lightbox({ product, onClose }: { product: Product; onClose: () => void 
   );
 }
 
+function Card({
+  p,
+  onOpen,
+}: {
+  p: Product;
+  onOpen: (p: Product) => void;
+}) {
+  return (
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      onClick={() => onOpen(p)}
+      onKeyDown={(e) => e.key === "Enter" && onOpen(p)}
+      tabIndex={0}
+      aria-label={`Voir ${p.name}`}
+      className="group relative h-72 cursor-pointer overflow-hidden rounded-[var(--radius)] border border-border bg-card shadow-sm transition-shadow duration-300 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+    >
+      <Image
+        src={p.img}
+        alt={p.name}
+        fill
+        sizes="(max-width: 768px) 50vw, 25vw"
+        draggable={false}
+        className="object-contain p-7 transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute inset-x-0 bottom-0 z-10 translate-y-4 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+        <h3 className="text-lg font-bold text-white">{p.name}</h3>
+        <span className="mt-1 inline-flex items-center gap-1 text-sm text-white/85">
+          Voir le produit
+          <ArrowUpRight size={15} />
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
 export function FamocoGallery() {
   const [selected, setSelected] = useState<Product | null>(null);
-  const [dragConstraint, setDragConstraint] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [dragConstraintTop, setDragConstraintTop] = useState(0);
+  const [dragConstraintBottom, setDragConstraintBottom] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const topRowRef = useRef<HTMLDivElement>(null);
+  const bottomRowRef = useRef<HTMLDivElement>(null);
+
+  // Split products in two equal rows
+  const half = Math.ceil(FAMOCO_PRODUCTS.length / 2);
+  const row1 = FAMOCO_PRODUCTS.slice(0, half);
+  const row2 = FAMOCO_PRODUCTS.slice(half);
 
   useEffect(() => {
     const calc = () => {
-      if (gridRef.current && containerRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const gridWidth = gridRef.current.scrollWidth;
-        setDragConstraint(Math.min(0, containerWidth - gridWidth - 32));
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!containerRef.current) return;
+      const cw = containerRef.current.offsetWidth;
+      if (topRowRef.current) {
+        setDragConstraintTop(Math.min(0, cw - topRowRef.current.scrollWidth - 32));
+      }
+      if (bottomRowRef.current) {
+        setDragConstraintBottom(
+          Math.min(0, cw - bottomRowRef.current.scrollWidth - 32)
+        );
       }
     };
     calc();
@@ -108,53 +161,45 @@ export function FamocoGallery() {
         </p>
       </Container>
 
-      <div
-        ref={containerRef}
-        className="relative mt-12 w-full cursor-grab active:cursor-grabbing"
-      >
+      <div ref={containerRef} className="relative mt-12 w-full">
+        {/* Row 1 */}
         <motion.div
-          className="w-max"
-          drag="x"
-          dragConstraints={{ left: dragConstraint, right: 0 }}
+          drag={isMobile ? false : "x"}
+          dragConstraints={{ left: dragConstraintTop, right: 0 }}
           dragElastic={0.05}
+          className="w-max cursor-grab active:cursor-grabbing"
         >
           <motion.div
-            ref={gridRef}
-            className="flex gap-5 px-5 lg:px-8"
+            ref={topRowRef}
+            className="grid auto-cols-[16rem] grid-flow-col gap-5 px-5 md:auto-cols-[18rem] lg:px-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.15 }}
           >
-            {FAMOCO_PRODUCTS.map((p) => (
-              <motion.div
-                key={p.name}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                onClick={() => setSelected(p)}
-                onKeyDown={(e) => e.key === "Enter" && setSelected(p)}
-                tabIndex={0}
-                aria-label={`Voir ${p.name}`}
-                className="group relative h-80 w-64 shrink-0 cursor-pointer overflow-hidden rounded-[var(--radius)] border border-border bg-card shadow-sm transition-shadow duration-300 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                <Image
-                  src={p.img}
-                  alt={p.name}
-                  fill
-                  sizes="256px"
-                  draggable={false}
-                  className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="absolute inset-x-0 bottom-0 z-10 translate-y-4 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  <h3 className="text-lg font-bold text-white">{p.name}</h3>
-                  <span className="mt-1 inline-flex items-center gap-1 text-sm text-white/85">
-                    Voir le produit
-                    <ArrowUpRight size={15} />
-                  </span>
-                </div>
-              </motion.div>
+            {row1.map((p) => (
+              <Card key={p.name} p={p} onOpen={setSelected} />
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Row 2 */}
+        <motion.div
+          drag={isMobile ? false : "x"}
+          dragConstraints={{ left: dragConstraintBottom, right: 0 }}
+          dragElastic={0.05}
+          className="mt-5 w-max cursor-grab active:cursor-grabbing"
+        >
+          <motion.div
+            ref={bottomRowRef}
+            className="grid auto-cols-[16rem] grid-flow-col gap-5 px-5 md:auto-cols-[18rem] lg:px-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            {row2.map((p) => (
+              <Card key={p.name} p={p} onOpen={setSelected} />
             ))}
           </motion.div>
         </motion.div>

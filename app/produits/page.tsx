@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { FamocoGallery } from "@/components/site/famoco-gallery";
+import { FamocoShowcase } from "@/components/site/famoco-showcase";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { Container, SectionHeading } from "@/components/site/primitives";
 
@@ -73,12 +74,15 @@ export default function ProduitsPage() {
         </Container>
       </section>
 
-      {/* Anatomie d'un terminal */}
+      {/* Vitrine visuelle — défile en continu */}
+      <FamocoShowcase />
+
+      {/* Pourquoi Famoco ? */}
       <section className="border-y border-border bg-card py-20 md:py-28">
         <Container>
           <SectionHeading
-            title="Anatomie d'un terminal Famoco"
-            lead="Chaque terminal réunit les composants essentiels aux opérations terrain."
+            title="Pourquoi Famoco ?"
+            lead="Des terminaux conçus pour les usages professionnels et adaptés aux opérations terrain en Afrique centrale."
           />
           <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {TERMINAL_PARTS.map((p) => {
