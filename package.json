@@ -12,6 +12,8 @@
     "node": "22.x"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.468.0",
     "next": "15.5.19",

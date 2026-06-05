@@ -1,6 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import AetherFlowHero from "@/components/ui/aether-flow-hero";
-import { LogoMarquee } from "@/components/site/logo-marquee";
+import { TrustCarousel } from "@/components/site/trust-carousel";
 import { Reveal } from "@/components/site/reveal";
 import { Icon } from "@/components/site/icon";
 import {
@@ -85,14 +85,14 @@ export default function HomePage() {
       </section>
 
       {/* Ils nous font confiance */}
-      <section className="border-y border-border bg-background py-16">
+      <section className="border-y border-border bg-background py-16 md:py-20">
         <Container>
           <p className="text-center text-sm font-medium text-muted-foreground">
             Ils nous font confiance
           </p>
         </Container>
         <div className="mt-10">
-          <LogoMarquee />
+          <TrustCarousel />
         </div>
       </section>
 

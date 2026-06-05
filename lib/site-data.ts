@@ -97,7 +97,24 @@ export const CLIENT_LOGOS = [
   },
 ] as const;
 
-// Section 5 — Digitalisation : avantages
+// Section 4 — Ils nous font confiance (logos extracted from the brand PDF)
+export const TRUST_LOGOS = [
+  { name: "EOLIS", src: "/logos/clients/c1.png" },
+  { name: "CAMCI", src: "/logos/clients/c2.png" },
+  { name: "MIA — Maxitas Industries Africa", src: "/logos/clients/c3.png" },
+  { name: "UBM", src: "/logos/clients/c4.png" },
+  { name: "LFDS", src: "/logos/clients/c5.png" },
+  { name: "Apave", src: "/logos/clients/c6.png" },
+  { name: "CDBM", src: "/logos/clients/c7.png" },
+  { name: "Boissons du Cameroun", src: "/logos/clients/c8.png" },
+  { name: "SRC", src: "/logos/clients/c9.png" },
+  { name: "Perenco", src: "/logos/clients/c10.png" },
+  { name: "Solevo", src: "/logos/clients/c11.png" },
+  { name: "AED", src: "/logos/clients/c12.png" },
+  { name: "Ceva Logistics", src: "/logos/clients/c13.png" },
+] as const;
+
+
 export const DIGITAL_BENEFITS = [
   "Prise de décision plus rapide",
   "Meilleure traçabilité des opérations",
