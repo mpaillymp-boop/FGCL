@@ -25,22 +25,22 @@ export default function ServicesPage() {
       />
 
       {/* Services proposés */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-background py-20 md:py-28">
         <Container>
           <SectionHeading title="Ce que nous faisons" />
           <RevealGroup className="mt-12 grid gap-6 md:grid-cols-2">
             {SERVICES.map((s) => (
               <RevealItem
                 key={s.title}
-                className="group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-electric-500/50"
+                className="group rounded-2xl border border-border bg-background p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/50"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-electric-500/10 text-electric-600 transition-colors group-hover:bg-fgcl-500/20 group-hover:text-fgcl-600">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20 group-hover:text-primary">
                   <Icon name={s.icon} size={24} />
                 </span>
-                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-ink">
+                <h3 className="mt-5 font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-foreground">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{s.text}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
               </RevealItem>
             ))}
           </RevealGroup>
@@ -48,7 +48,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Accompagnement — déroulé */}
-      <section className="relative overflow-hidden border-t border-slate-200 bg-slate-50 py-20 md:py-28">
+      <section className="relative overflow-hidden border-t border-border bg-card py-20 md:py-28">
         <div className="bg-tech-grid pointer-events-none absolute inset-0 opacity-60" />
         <Container className="relative">
           <SectionHeading
@@ -60,18 +60,18 @@ export default function ServicesPage() {
               <Reveal
                 key={step.title}
                 delay={i * 0.05}
-                className="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="flex gap-5 rounded-2xl border border-border bg-background p-6 shadow-sm"
               >
                 <div className="flex flex-col items-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-fgcl-500 text-ink">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                     <Icon name={step.icon} size={22} />
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-ink">
+                  <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {step.text}
                   </p>
                 </div>

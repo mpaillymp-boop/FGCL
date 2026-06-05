@@ -53,10 +53,10 @@ export function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-ink placeholder:text-slate-400 outline-none transition-colors focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20";
+    "w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20";
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-2xl border border-border bg-background p-6 shadow-sm sm:p-8">
       <AnimatePresence mode="wait">
         {status === "success" ? (
           <motion.div
@@ -65,19 +65,19 @@ export function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center gap-4 py-10 text-center"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-fgcl-500 text-ink">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
               <CheckCircle2 size={30} />
             </span>
-            <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-ink">
+            <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-semibold text-foreground">
               Votre demande est prête
             </h3>
-            <p className="max-w-sm text-sm text-slate-600">
+            <p className="max-w-sm text-sm text-muted-foreground">
               Votre logiciel de messagerie s&apos;est ouvert avec votre demande.
               Vous pouvez aussi nous appeler directement.
             </p>
             <a
               href={CONTACT.phoneHref}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-electric-600 hover:text-electric-500"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary"
             >
               <Phone size={16} />
               {CONTACT.phone}
@@ -119,7 +119,7 @@ export function ContactForm() {
             />
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="project" className="text-sm font-medium text-slate-700">
+              <label htmlFor="project" className="text-sm font-medium text-muted-foreground">
                 Votre projet ou votre besoin
               </label>
               <textarea
@@ -141,7 +141,7 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-fgcl-500 px-6 py-3.5 text-sm font-semibold text-ink transition-all hover:bg-fgcl-400 active:scale-[0.98] disabled:opacity-70 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-70 sm:w-auto"
             >
               {status === "submitting" && <Loader2 size={16} className="animate-spin" />}
               Envoyer ma demande
@@ -180,9 +180,9 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-sm font-medium text-slate-700">
+      <label htmlFor={id} className="text-sm font-medium text-muted-foreground">
         {label}
-        {optional && <span className="ml-1 text-xs text-slate-500">(optionnel)</span>}
+        {optional && <span className="ml-1 text-xs text-muted-foreground">(optionnel)</span>}
       </label>
       <input
         id={id}

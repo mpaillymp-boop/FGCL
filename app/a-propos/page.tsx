@@ -38,11 +38,11 @@ export default function AProposPage() {
       />
 
       {/* Qui sommes-nous */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-background py-20 md:py-28">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading title="Qui sommes-nous ?" />
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-600">
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 Basée à Douala (Cameroun), FGCL accompagne entreprises et
                 administrations dans la traçabilité, la digitalisation des
@@ -64,14 +64,14 @@ export default function AProposPage() {
             <img
               src="https://res.cloudinary.com/hm3mec8bl/image/upload/v1654012381/g1lefrjyzaj0ihrmapzi.jpg"
               alt="FGCL — solutions numériques pour les entreprises en Afrique centrale"
-              className="relative w-full rounded-2xl border border-slate-200 object-cover shadow-xl"
+              className="relative w-full rounded-2xl border border-border object-cover shadow-xl"
             />
           </Reveal>
         </Container>
       </section>
 
       {/* Partenaires technologiques */}
-      <section className="border-y border-slate-200 bg-slate-50 py-20 md:py-28">
+      <section className="border-y border-border bg-card py-20 md:py-28">
         <Container>
           <SectionHeading
             title="Nos partenaires technologiques"
@@ -81,9 +81,9 @@ export default function AProposPage() {
             {PARTNERS.map((p) => (
               <RevealItem
                 key={p.name}
-                className="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="flex flex-col rounded-2xl border border-border bg-background p-8 shadow-sm"
               >
-                <span className="flex h-16 w-fit items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3">
+                <span className="flex h-16 w-fit items-center justify-center rounded-xl border border-border bg-background px-5 py-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={p.logo}
@@ -91,7 +91,7 @@ export default function AProposPage() {
                     className="h-10 w-auto max-w-[160px] object-contain"
                   />
                 </span>
-                <p className="mt-6 flex-1 text-base leading-relaxed text-slate-600">
+                <p className="mt-6 flex-1 text-base leading-relaxed text-muted-foreground">
                   {p.text}
                 </p>
                 <div className="mt-7">
@@ -106,16 +106,16 @@ export default function AProposPage() {
       </section>
 
       {/* Chiffres clés */}
-      <section className="relative overflow-hidden bg-white py-20 md:py-24">
+      <section className="relative overflow-hidden bg-background py-20 md:py-24">
         <div className="bg-tech-grid pointer-events-none absolute inset-0 opacity-60" />
         <Container className="relative">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {KEY_FIGURES.map((f) => (
               <Reveal key={f.label} className="text-center sm:text-left">
-                <div className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold tracking-tight text-electric-600 md:text-6xl">
+                <div className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold tracking-tight text-primary md:text-6xl">
                   <Counter value={f.value} prefix={f.prefix} suffix={f.suffix} />
                 </div>
-                <p className="mt-3 text-sm text-slate-600">{f.label}</p>
+                <p className="mt-3 text-sm text-muted-foreground">{f.label}</p>
               </Reveal>
             ))}
           </div>
