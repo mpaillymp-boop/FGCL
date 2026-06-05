@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import {
-  ArrowUpRight,
   Activity,
   Wrench,
   ClipboardCheck,
@@ -18,9 +16,9 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
+import { FamocoGallery } from "@/components/site/famoco-gallery";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { Container, SectionHeading } from "@/components/site/primitives";
-import { FAMOCO_PRODUCTS } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Produits",
@@ -106,50 +104,10 @@ export default function ProduitsPage() {
         </Container>
       </section>
 
-      {/* Grille produits */}
-      <section id="terminaux" className="bg-background py-20 md:py-28">
-        <Container>
-          <SectionHeading
-            title="Nos terminaux"
-            lead="Une gamme complète pour chaque usage terrain. Découvrez chaque modèle sur le site Famoco."
-          />
-          <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {FAMOCO_PRODUCTS.map((p) => (
-              <RevealItem key={p.name}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex h-full flex-col overflow-hidden rounded-[var(--radius)] border border-border bg-background shadow-sm transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
-                >
-                  <div className="relative h-52 bg-card">
-                    <Image
-                      src={p.img}
-                      alt={`Terminal ${p.name}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col border-t border-border p-6">
-                    <h3 className="text-lg font-semibold text-foreground">{p.name}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                      {p.text}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                      Voir le produit
-                      <ArrowUpRight
-                        size={16}
-                        className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      />
-                    </span>
-                  </div>
-                </a>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </Container>
-      </section>
+      {/* Grille produits — galerie glissable */}
+      <div id="terminaux">
+        <FamocoGallery />
+      </div>
 
       {/* Repair Center */}
       <section className="border-y border-border bg-card py-20 md:py-28">
