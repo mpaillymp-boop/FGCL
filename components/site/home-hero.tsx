@@ -17,7 +17,7 @@ export function HomeHero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative flex min-h-[100dvh] items-center overflow-hidden">
+    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-navy-950">
       <ParticleField />
       <div
         aria-hidden

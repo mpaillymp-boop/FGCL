@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 const PARTNERS = [
   {
     name: "Daxium",
-    logo: "/logos/daxium.svg",
+    logo: "/logos/daxium.png",
     text: "Plateforme no-code puissante qui permet de créer des applications métier sur mesure, rapidement et sans compétence technique.",
     href: "https://www.daxium.com/",
     cta: "En savoir plus sur Daxium",
   },
   {
     name: "Famoco",
-    logo: "/logos/famoco.svg",
+    logo: "/logos/famoco.png",
     text: "Terminaux mobiles sécurisés, conçus pour les environnements exigeants et les usages terrain.",
     href: "https://www.famoco.com/",
     cta: "En savoir plus sur Famoco",
@@ -85,7 +85,11 @@ export default function AProposPage() {
               >
                 <span className="flex h-16 w-fit items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.logo} alt={`Logo ${p.name}`} className="h-9 w-auto" />
+                  <img
+                    src={p.logo}
+                    alt={`Logo ${p.name}`}
+                    className="h-10 w-auto max-w-[160px] object-contain"
+                  />
                 </span>
                 <p className="mt-6 flex-1 text-base leading-relaxed text-slate-600">
                   {p.text}

@@ -18,7 +18,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-white/5 pt-32 pb-16 md:pt-40 md:pb-24">
+    <section className="relative overflow-hidden border-b border-white/5 bg-navy-950 pt-32 pb-16 md:pt-40 md:pb-24">
       <ParticleField className="opacity-60" />
       <div
         aria-hidden

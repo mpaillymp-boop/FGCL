@@ -37,16 +37,9 @@ export function AfricaScene() {
 
   return (
     <section ref={ref} className="relative h-[240vh] bg-white">
-      <div className="sticky top-0 flex h-[100dvh] flex-col items-center overflow-hidden">
-        {/* Title only, anchored at the top so it never covers the animation */}
-        <Container className="relative z-10 shrink-0 pt-28 text-center">
-          <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-space-grotesk)] text-3xl font-bold leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
-            De la donnée terrain à la décision, en temps réel
-          </h2>
-        </Container>
-
-        {/* Map fills the remaining space, centered under the title */}
-        <div className="relative w-full flex-1">
+      <div className="sticky top-0 h-[100dvh] overflow-hidden">
+        {/* Full-viewport map, zoom focal point (Cameroon) stays centered */}
+        <div className="absolute inset-0">
           <div
             aria-hidden
             className="glow-blue pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 opacity-25"
@@ -126,6 +119,13 @@ export function AfricaScene() {
             </motion.g>
           </motion.svg>
         </div>
+
+        {/* Title overlaid at the top — sits over the empty upper part of the map */}
+        <Container className="pointer-events-none absolute inset-x-0 top-0 z-10 pt-28 text-center">
+          <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-space-grotesk)] text-3xl font-bold leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl">
+            De la donnée terrain à la décision, en temps réel
+          </h2>
+        </Container>
       </div>
     </section>
   );
