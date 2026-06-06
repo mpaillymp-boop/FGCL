@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { FamocoGallery } from "@/components/site/famoco-gallery";
-import { FamocoShowcase } from "@/components/site/famoco-showcase";
+import { FamocoAccordion } from "@/components/site/famoco-accordion";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { Container, SectionHeading } from "@/components/site/primitives";
 
@@ -60,22 +60,8 @@ export default function ProduitsPage() {
         lead="Des appareils mobiles sécurisés pour la traçabilité, le paiement, le contrôle d'accès, la logistique et la collecte de données sur le terrain."
       />
 
-      {/* Intro */}
-      <section className="bg-background py-16 md:py-20">
-        <Container>
-          <Reveal className="max-w-3xl text-base leading-relaxed text-muted-foreground">
-            <p>
-              Famoco est une entreprise française spécialisée dans les terminaux
-              mobiles sécurisés dédiés aux usages professionnels. FGCL accompagne
-              les entreprises dans le choix, le déploiement, la configuration et la
-              maintenance de leurs terminaux.
-            </p>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* Vitrine visuelle — défile en continu */}
-      <FamocoShowcase />
+      {/* Famoco — texte + accordéon d'images */}
+      <FamocoAccordion />
 
       {/* Pourquoi Famoco ? */}
       <section className="border-y border-border bg-card py-20 md:py-28">
