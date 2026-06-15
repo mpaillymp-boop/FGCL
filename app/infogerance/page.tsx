@@ -53,8 +53,28 @@ export default function InfogerancePage() {
         <PrimaryCTA href="/contact">Auditer votre environnement IT</PrimaryCTA>
       </PageHero>
 
-      {/* Nos services IT */}
+      {/* Intro + visuel */}
       <section className="bg-background py-20 md:py-28">
+        <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <SectionHeading
+              title="Votre IT entre de bonnes mains"
+              lead="Nous garantissons la continuité, la sécurité et la performance de votre environnement informatique, tout en accompagnant vos projets de transformation digitale."
+            />
+          </Reveal>
+          <Reveal delay={0.1} className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/infogerance.jpg"
+              alt="Infogérance et infrastructure IT par FGCL"
+              className="w-full object-cover"
+            />
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Nos services IT */}
+      <section className="border-t border-border bg-background py-20 md:py-28">
         <Container>
           <SectionHeading
             title="Nos services"

@@ -195,11 +195,20 @@ export const DAXIUM_SUPPORT = [
 
 // Accueil — section partenaire Famoco (showcase par usage)
 export const FAMOCO_CATEGORIES = [
-  { label: "Terminaux Famoco", img: "/logos/img7.jpg" },
+  { label: "Terminaux Famoco", img: "/logos/terminaux.png" },
   { label: "MDM", img: "/logos/img3.jpg" },
-  { label: "Biométrie", img: "/logos/img4.jpg" },
+  { label: "Biométrie", img: "/logos/biometrie.png" },
   { label: "Paiement", img: "/logos/img5.jpg" },
-  { label: "Contrôle d'accès", img: "/logos/img6.jpg" },
+  { label: "Contrôle d'accès", img: "/logos/controle.png" },
+] as const;
+
+// Digitalisation — visuels des cas d'usage (accordéon, sans libellé)
+export const DAXIUM_USE_CASE_IMAGES = [
+  { src: "/logos/RIA.png", alt: "Contrôle sécurité incendie (RIA)" },
+  { src: "/logos/fabtrack.png", alt: "Fabtrack — traçabilité production" },
+  { src: "/logos/piece_de_caisse.png", alt: "Pièce de caisse" },
+  { src: "/logos/controle-acces.png", alt: "Contrôle d'accès" },
+  { src: "/logos/immeuble.png", alt: "Gestion immobilière" },
 ] as const;
 
 // À propos — chiffres clés
@@ -297,14 +306,14 @@ export const IT_SERVICES = [
     id: "infogerance",
     icon: "ServerCog",
     title: "Infogérance",
-    accent: "emerald",
+    accent: "blue",
     text: "Externalisation globale ou partielle de la gestion de votre système d'information. Nous garantissons le fonctionnement, les délais d'intervention, le conseil et l'expertise, et nous gérons les autres fournisseurs IT. Vous pouvez désormais vous concentrer sur votre activité.",
   },
   {
     id: "distribution",
     icon: "PackageCheck",
     title: "Distribution",
-    accent: "amber",
+    accent: "blue",
     text: "Nous représentons les marques leaders du marché technologique, choisies et testées lors de nos veilles technologiques mensuelles. Seules sont retenues les marques proposant les produits les plus innovants ou à forte valeur ajoutée. Nous conseillons ainsi à nos clients une solution complète, matériels et logiciels.",
   },
 ] as const;
