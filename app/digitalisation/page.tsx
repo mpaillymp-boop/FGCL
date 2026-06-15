@@ -77,22 +77,24 @@ export default function DigitalisationPage() {
 
       {/* Cas d'usage */}
       <section className="border-y border-border bg-card py-20 md:py-28">
-        <Container>
-          <SectionHeading
-            title="Cas d'usage"
-            lead="Daxium-Air s'adapte à une grande variété d'opérations terrain."
-          />
-          <Reveal className="mt-10 flex flex-wrap gap-3">
-            {DAXIUM_USE_CASES.map((u) => (
-              <span
-                key={u}
-                className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground"
-              >
-                {u}
-              </span>
-            ))}
-          </Reveal>
-          <Reveal delay={0.1} className="mt-12">
+        <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <SectionHeading
+              title="Cas d'usage"
+              lead="Daxium-Air s'adapte à une grande variété d'opérations terrain."
+            />
+            <Reveal className="mt-10 flex flex-wrap gap-3">
+              {DAXIUM_USE_CASES.map((u) => (
+                <span
+                  key={u}
+                  className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground"
+                >
+                  {u}
+                </span>
+              ))}
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}>
             <ImageAccordion images={DAXIUM_USE_CASE_IMAGES} />
           </Reveal>
         </Container>
@@ -158,23 +160,25 @@ export default function DigitalisationPage() {
 
       {/* Accompagnement FGCL */}
       <section className="bg-background py-20 md:py-28">
-        <Container>
-          <SectionHeading
-            title="L'accompagnement FGCL"
-            lead="Intégrateur local, nous adaptons, déployons, formons et faisons évoluer votre solution dans le temps."
-          />
-          <Reveal className="mt-10 flex flex-wrap gap-3">
-            {DAXIUM_SUPPORT.map((s) => (
-              <span
-                key={s}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground"
-              >
-                <Check size={15} strokeWidth={2.5} className="text-primary" />
-                {s}
-              </span>
-            ))}
-          </Reveal>
-          <Reveal delay={0.1} className="mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
+        <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <SectionHeading
+              title="L'accompagnement FGCL"
+              lead="Intégrateur local, nous adaptons, déployons, formons et faisons évoluer votre solution dans le temps."
+            />
+            <Reveal className="mt-10 flex flex-wrap gap-3">
+              {DAXIUM_SUPPORT.map((s) => (
+                <span
+                  key={s}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground"
+                >
+                  <Check size={15} strokeWidth={2.5} className="text-primary" />
+                  {s}
+                </span>
+              ))}
+            </Reveal>
+          </div>
+          <Reveal delay={0.1} className="overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logos/img2.jpg"
