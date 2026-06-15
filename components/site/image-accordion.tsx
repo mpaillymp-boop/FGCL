@@ -5,20 +5,24 @@ import { useState } from "react";
 type AccordionImage = { src: string; alt: string };
 
 /**
- * Accordéon d'images sans libellé (cartes qui s'élargissent au survol).
- * Même principe visuel que FamocoAccordion, mais sans texte sur les photos.
+ * Accordéon d'images sans libellé, pleine largeur et responsive.
+ * Les cartes se partagent la largeur du conteneur (flex), la carte active
+ * s'élargit. Survol sur desktop, tap sur mobile. Hauteur réduite sur mobile.
  */
 export function ImageAccordion({ images }: { images: readonly AccordionImage[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="flex flex-row items-center gap-3 overflow-x-auto p-2">
+    <div className="flex w-full flex-row items-stretch gap-2 sm:gap-3">
       {images.map((img, index) => (
-        <div
+        <button
+          type="button"
           key={img.src}
           onMouseEnter={() => setActiveIndex(index)}
-          className={`relative h-[360px] shrink-0 cursor-pointer overflow-hidden rounded-[var(--radius)] border border-border transition-all duration-700 ease-in-out ${
-            index === activeIndex ? "w-[320px]" : "w-[56px]"
+          onClick={() => setActiveIndex(index)}
+          aria-label={img.alt}
+          className={`relative h-[200px] cursor-pointer overflow-hidden rounded-[var(--radius)] border border-border transition-all duration-500 ease-in-out sm:h-[300px] md:h-[380px] ${
+            index === activeIndex ? "flex-[5]" : "flex-[1]"
           }`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -27,7 +31,7 @@ export function ImageAccordion({ images }: { images: readonly AccordionImage[] }
             alt={img.alt}
             className="absolute inset-0 h-full w-full object-cover"
           />
-        </div>
+        </button>
       ))}
     </div>
   );
