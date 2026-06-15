@@ -147,10 +147,6 @@ body {
   width: max-content;
   animation: scroll-right 45s linear infinite;
 }
-.trust-mask:hover .animate-scroll-left,
-.trust-mask:hover .animate-scroll-right {
-  animation-play-state: paused;
-}
 @media (prefers-reduced-motion: reduce) {
   .animate-scroll-left,
   .animate-scroll-right {

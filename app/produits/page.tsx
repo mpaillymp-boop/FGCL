@@ -60,19 +60,8 @@ export default function ProduitsPage() {
         lead="Des appareils mobiles sécurisés pour la traçabilité, le paiement, le contrôle d'accès, la logistique et la collecte de données sur le terrain."
       />
 
-      {/* Intro */}
-      <section className="bg-background py-16 md:py-20">
-        <Container>
-          <Reveal className="max-w-3xl text-base leading-relaxed text-muted-foreground">
-            <p>
-              Famoco est une entreprise française spécialisée dans les terminaux
-              mobiles sécurisés dédiés aux usages professionnels. FGCL accompagne
-              les entreprises dans le choix, le déploiement, la configuration et la
-              maintenance de leurs terminaux.
-            </p>
-          </Reveal>
-        </Container>
-      </section>
+      {/* Famoco — texte + accordéon d'images */}
+      <FamocoAccordion />
 
       {/* L'expertise Famoco, déployée par FGCL — accordéon par usage */}
       <FamocoAccordion />
@@ -81,8 +70,8 @@ export default function ProduitsPage() {
       <section className="border-y border-border bg-card py-20 md:py-28">
         <Container>
           <SectionHeading
-            title="Anatomie d'un terminal Famoco"
-            lead="Chaque terminal réunit les composants essentiels aux opérations terrain."
+            title="Pourquoi Famoco ?"
+            lead="Des terminaux conçus pour les usages professionnels et adaptés aux opérations terrain en Afrique centrale."
           />
           <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {TERMINAL_PARTS.map((p) => {

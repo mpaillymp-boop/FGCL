@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
@@ -11,10 +11,10 @@ type Product = (typeof FAMOCO_PRODUCTS)[number];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.06 } },
 };
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.96 },
+  hidden: { opacity: 0, y: 18, scale: 0.96 },
   visible: {
     opacity: 1,
     y: 0,
@@ -51,9 +51,7 @@ function Lightbox({ product, onClose }: { product: Product; onClose: () => void 
         <div className="mt-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
             <h3 className="text-xl font-bold text-foreground">{product.name}</h3>
-            <p className="mt-1 max-w-md text-sm text-muted-foreground">
-              {product.text}
-            </p>
+            <p className="mt-1 max-w-md text-sm text-muted-foreground">{product.text}</p>
           </div>
           <a
             href={product.href}
@@ -79,86 +77,57 @@ function Lightbox({ product, onClose }: { product: Product; onClose: () => void 
 
 export function FamocoGallery() {
   const [selected, setSelected] = useState<Product | null>(null);
-  const [dragConstraint, setDragConstraint] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const calc = () => {
-      if (gridRef.current && containerRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const gridWidth = gridRef.current.scrollWidth;
-        setDragConstraint(Math.min(0, containerWidth - gridWidth - 32));
-      }
-    };
-    calc();
-    window.addEventListener("resize", calc);
-    return () => window.removeEventListener("resize", calc);
-  }, []);
 
   return (
     <section className="relative overflow-hidden border-y border-border bg-background py-20 md:py-28">
       <Container>
-        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Nos terminaux
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          Glissez pour explorer la gamme, cliquez sur un terminal pour
-          l&apos;agrandir et accéder à sa fiche.
-        </p>
-      </Container>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Nos terminaux
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            Survolez un terminal, cliquez pour l&apos;agrandir et accéder à sa fiche.
+          </p>
+        </div>
 
-      <div
-        ref={containerRef}
-        className="relative mt-12 w-full cursor-grab active:cursor-grabbing"
-      >
         <motion.div
-          className="w-max"
-          drag="x"
-          dragConstraints={{ left: dragConstraint, right: 0 }}
-          dragElastic={0.05}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-5 sm:gap-6 md:grid-cols-4"
         >
-          <motion.div
-            ref={gridRef}
-            className="flex gap-5 px-5 lg:px-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {FAMOCO_PRODUCTS.map((p) => (
-              <motion.div
-                key={p.name}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                onClick={() => setSelected(p)}
-                onKeyDown={(e) => e.key === "Enter" && setSelected(p)}
-                tabIndex={0}
-                aria-label={`Voir ${p.name}`}
-                className="group relative h-80 w-64 shrink-0 cursor-pointer overflow-hidden rounded-[var(--radius)] border border-border bg-card shadow-sm transition-shadow duration-300 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                <Image
-                  src={p.img}
-                  alt={p.name}
-                  fill
-                  sizes="256px"
-                  draggable={false}
-                  className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="absolute inset-x-0 bottom-0 z-10 translate-y-4 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  <h3 className="text-lg font-bold text-white">{p.name}</h3>
-                  <span className="mt-1 inline-flex items-center gap-1 text-sm text-white/85">
-                    Voir le produit
-                    <ArrowUpRight size={15} />
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          {FAMOCO_PRODUCTS.map((p) => (
+            <motion.div
+              key={p.name}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              onClick={() => setSelected(p)}
+              onKeyDown={(e) => e.key === "Enter" && setSelected(p)}
+              tabIndex={0}
+              aria-label={`Voir ${p.name}`}
+              className="group relative h-64 cursor-pointer overflow-hidden rounded-[var(--radius)] border border-border bg-card shadow-sm transition-shadow duration-300 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <Image
+                src={p.img}
+                alt={p.name}
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-x-0 bottom-0 z-10 translate-y-4 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <h3 className="text-base font-bold text-white">{p.name}</h3>
+                <span className="mt-1 inline-flex items-center gap-1 text-sm text-white/85">
+                  Voir le produit
+                  <ArrowUpRight size={15} />
+                </span>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
-      </div>
+      </Container>
 
       <AnimatePresence>
         {selected && (
