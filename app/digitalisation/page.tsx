@@ -40,6 +40,24 @@ export default function DigitalisationPage() {
         </div>
       </PageHero>
 
+      {/* Aperçu Daxium-Air */}
+      <section className="bg-background py-16 md:py-20">
+        <Container>
+          <Reveal className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/img2.jfif"
+              alt="Interface Daxium-Air : fiches, tâches, formulaires, listes, rapports et applications personnalisées"
+              className="w-full object-cover"
+            />
+          </Reveal>
+          <p className="mx-auto mt-5 max-w-2xl text-center text-sm text-muted-foreground">
+            Une application métier Daxium-Air paramétrée par FGCL : fiches,
+            tâches, formulaires, listes, rapports et applications personnalisées.
+          </p>
+        </Container>
+      </section>
+
       {/* Notre approche */}
       <section className="bg-background py-20 md:py-28">
         <Container>

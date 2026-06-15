@@ -193,6 +193,15 @@ export const DAXIUM_SUPPORT = [
   "Évolution des formulaires et reporting",
 ] as const;
 
+// Accueil — section partenaire Famoco (showcase par usage)
+export const FAMOCO_CATEGORIES = [
+  { label: "Terminaux Famoco", img: "/logos/img7.jfif" },
+  { label: "MDM", img: "/logos/img3.jfif" },
+  { label: "Biométrie", img: "/logos/img4.jfif" },
+  { label: "Paiement", img: "/logos/img5.jpg" },
+  { label: "Contrôle d'accès", img: "/logos/img6.jfif" },
+] as const;
+
 // À propos — chiffres clés
 export const KEY_FIGURES = [
   { value: 50, prefix: "+", suffix: "", label: "clients accompagnés" },

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 import AetherFlowHero from "@/components/ui/aether-flow-hero";
 import { TrustCarousel } from "@/components/site/trust-carousel";
 import { Reveal } from "@/components/site/reveal";
@@ -13,6 +14,7 @@ import {
 import {
   SOLUTIONS,
   HOME_PARTNERS,
+  FAMOCO_CATEGORIES,
   MISSION_CARDS,
   DIGITAL_DEFINITIONS,
   DIGITAL_BENEFITS,
@@ -215,6 +217,51 @@ export default function HomePage() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* L'expertise Famoco, déployée par FGCL */}
+      <section className="border-y border-border bg-card py-20 md:py-28">
+        <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.3fr] lg:gap-16">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
+              Notre partenaire
+            </p>
+            <SectionHeading title="L'expertise Famoco, déployée par FGCL" />
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+              Famoco est une entreprise française spécialisée dans les terminaux
+              mobiles sécurisés dédiés aux usages professionnels. FGCL accompagne
+              les entreprises dans le choix, le déploiement, la configuration et la
+              maintenance de leurs terminaux.
+            </p>
+            <div className="mt-8">
+              <PrimaryCTA href="/produits">Découvrir nos terminaux</PrimaryCTA>
+            </div>
+          </div>
+
+          <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 lg:mx-0 lg:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {FAMOCO_CATEGORIES.map((c, i) => (
+              <Reveal
+                key={c.label}
+                delay={i * 0.05}
+                className={cn(
+                  "group relative h-72 shrink-0 overflow-hidden rounded-2xl border border-border",
+                  i === 0 ? "w-60" : "w-44"
+                )}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={c.img}
+                  alt={c.label}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+                <span className="absolute inset-x-0 bottom-0 p-4 text-sm font-semibold text-white">
+                  {c.label}
+                </span>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </section>
