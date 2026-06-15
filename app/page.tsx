@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import AetherFlowHero from "@/components/ui/aether-flow-hero";
 import { TrustCarousel } from "@/components/site/trust-carousel";
@@ -96,18 +97,31 @@ export default function HomePage() {
                 <p className="relative mt-3 text-base leading-relaxed text-muted-foreground">
                   {p.text}
                 </p>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
-                >
-                  En savoir plus
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </a>
+                {p.href.startsWith("/") ? (
+                  <Link
+                    href={p.href}
+                    className="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+                  >
+                    En savoir plus
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-0.5"
+                    />
+                  </Link>
+                ) : (
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+                  >
+                    En savoir plus
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-0.5"
+                    />
+                  </a>
+                )}
               </Reveal>
             ))}
           </div>

@@ -6,9 +6,10 @@
 
 export const NAV_LINKS = [
   { label: "Accueil", href: "/" },
-  { label: "À propos", href: "/a-propos" },
+  { label: "Digitalisation", href: "/digitalisation" },
   { label: "Produits", href: "/produits" },
   { label: "Services", href: "/services" },
+  { label: "À propos", href: "/a-propos" },
   { label: "Ressources", href: "/ressources" },
   { label: "Nous contacter", href: "/contact" },
 ] as const;
@@ -50,7 +51,7 @@ export const HOME_PARTNERS = [
     name: "Daxium-Air",
     logo: "/logos/daxium.png",
     text: "Création d'applications métiers web et mobiles adaptées à vos processus terrain.",
-    href: "https://www.daxium.com/",
+    href: "/digitalisation",
   },
   {
     name: "Famoco",
@@ -148,6 +149,48 @@ export const DIGITAL_DEFINITIONS = [
     term: "Transformation digitale",
     text: "Faire évoluer progressivement l'organisation grâce au numérique, en respectant ses réalités métier et terrain.",
   },
+] as const;
+
+// Digitalisation (Daxium-Air) — notre approche
+export const DIGITAL_APPROACH = [
+  { icon: "Compass", title: "Comprendre vos process", text: "Nous partons de vos procédures existantes et de vos contraintes terrain." },
+  { icon: "FileText", title: "Modéliser les formulaires", text: "Formulaires, workflows et tâches adaptés à vos métiers." },
+  { icon: "Rocket", title: "Déployer un pilote", text: "Une première version testée en conditions réelles sur le terrain." },
+  { icon: "GraduationCap", title: "Former les équipes", text: "Une prise en main rapide et durable par vos utilisateurs." },
+  { icon: "BarChart3", title: "Analyser les données", text: "Rapports automatisés et tableaux de bord pour décider." },
+  { icon: "TrendingUp", title: "Industrialiser", text: "Nous étendons progressivement la solution à vos opérations." },
+] as const;
+
+// Digitalisation (Daxium-Air) — cas d'usage
+export const DAXIUM_USE_CASES = [
+  "Contrôles QHSE",
+  "Rondes",
+  "Suivi logistique",
+  "Maintenance",
+  "Inspections",
+  "Merchandising",
+  "États des lieux",
+  "Réservations",
+  "Gestion d'incidents",
+] as const;
+
+// Digitalisation (Daxium-Air) — valeur métier
+export const DAXIUM_VALUE = [
+  "Moins de papier",
+  "Moins de ressaisie",
+  "Plus de fiabilité",
+  "Des rapports plus rapides",
+  "Une meilleure visibilité sur les opérations",
+] as const;
+
+// Digitalisation (Daxium-Air) — accompagnement FGCL
+export const DAXIUM_SUPPORT = [
+  "Cadrage",
+  "Paramétrage",
+  "Tests",
+  "Formation",
+  "Support",
+  "Évolution des formulaires et reporting",
 ] as const;
 
 // À propos — chiffres clés
