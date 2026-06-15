@@ -6,10 +6,10 @@
 
 export const NAV_LINKS = [
   { label: "Accueil", href: "/" },
+  { label: "À propos", href: "/a-propos" },
   { label: "Digitalisation", href: "/digitalisation" },
   { label: "Produits", href: "/produits" },
   { label: "Infogérance", href: "/infogerance" },
-  { label: "À propos", href: "/a-propos" },
   { label: "Ressources", href: "/ressources" },
   { label: "Nous contacter", href: "/contact" },
 ] as const;
