@@ -6,10 +6,10 @@
 
 export const NAV_LINKS = [
   { label: "Accueil", href: "/" },
+  { label: "À propos", href: "/a-propos" },
   { label: "Digitalisation", href: "/digitalisation" },
   { label: "Produits", href: "/produits" },
   { label: "Infogérance", href: "/infogerance" },
-  { label: "À propos", href: "/a-propos" },
   { label: "Ressources", href: "/ressources" },
   { label: "Nous contacter", href: "/contact" },
 ] as const;
@@ -195,11 +195,11 @@ export const DAXIUM_SUPPORT = [
 
 // Accueil — section partenaire Famoco (showcase par usage)
 export const FAMOCO_CATEGORIES = [
-  { label: "Terminaux Famoco", img: "/logos/img7.jfif" },
-  { label: "MDM", img: "/logos/img3.jfif" },
-  { label: "Biométrie", img: "/logos/img4.jfif" },
+  { label: "Terminaux Famoco", img: "/logos/img7.jpg" },
+  { label: "MDM", img: "/logos/img3.jpg" },
+  { label: "Biométrie", img: "/logos/img4.jpg" },
   { label: "Paiement", img: "/logos/img5.jpg" },
-  { label: "Contrôle d'accès", img: "/logos/img6.jfif" },
+  { label: "Contrôle d'accès", img: "/logos/img6.jpg" },
 ] as const;
 
 // À propos — chiffres clés

@@ -4,23 +4,16 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/site/primitives";
-
-type AccordionData = { id: number; title: string; imageUrl: string };
-
-const FAMOCO_IMAGES: AccordionData[] = [
-  { id: 1, title: "Terminaux Famoco", imageUrl: "https://i.ytimg.com/vi/N4yrC6veh8s/maxresdefault.jpg" },
-  { id: 2, title: "Biométrie", imageUrl: "https://techafricanews.com/wp-content/uploads/2021/07/Famoco-biometrics.jpg" },
-  { id: 3, title: "Paiement", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA4wqA_1FBR4i86uDGhTyhEc3Or9ApdfMJmw&s" },
-  { id: 4, title: "Contrôle d'accès", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc5LGzkgv3R0iYLwgnY_-KcuCQVEzYKMCppw&s" },
-  { id: 5, title: "Collecte terrain", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRFv8fK_b8YS01K8JGFh0ZCglf7zvSqnqXRQ&s" },
-];
+import { FAMOCO_CATEGORIES } from "@/lib/site-data";
 
 const AccordionItem = ({
-  item,
+  title,
+  imageUrl,
   isActive,
   onMouseEnter,
 }: {
-  item: AccordionData;
+  title: string;
+  imageUrl: string;
   isActive: boolean;
   onMouseEnter: () => void;
 }) => {
@@ -33,8 +26,8 @@ const AccordionItem = ({
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={item.imageUrl}
-        alt={item.title}
+        src={imageUrl}
+        alt={title}
         className="absolute inset-0 h-full w-full object-cover"
         onError={(e) => {
           const t = e.currentTarget;
@@ -50,7 +43,7 @@ const AccordionItem = ({
             : "bottom-24 left-1/2 -translate-x-1/2 rotate-90"
         }`}
       >
-        {item.title}
+        {title}
       </span>
     </div>
   );
@@ -60,7 +53,7 @@ export function FamocoAccordion() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="border-y border-border bg-card py-16 md:py-24">
       <Container>
         <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
           <div className="w-full text-center md:w-1/2 md:text-left">
@@ -89,10 +82,11 @@ export function FamocoAccordion() {
 
           <div className="w-full md:w-1/2">
             <div className="flex flex-row items-center justify-center gap-3 overflow-x-auto p-2">
-              {FAMOCO_IMAGES.map((item, index) => (
+              {FAMOCO_CATEGORIES.map((item, index) => (
                 <AccordionItem
-                  key={item.id}
-                  item={item}
+                  key={item.label}
+                  title={item.label}
+                  imageUrl={item.img}
                   isActive={index === activeIndex}
                   onMouseEnter={() => setActiveIndex(index)}
                 />

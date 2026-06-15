@@ -60,10 +60,10 @@ export default function ProduitsPage() {
         lead="Des appareils mobiles sécurisés pour la traçabilité, le paiement, le contrôle d'accès, la logistique et la collecte de données sur le terrain."
       />
 
-      {/* Famoco — texte + accordéon d'images */}
+      {/* L'expertise Famoco, déployée par FGCL — accordéon par usage */}
       <FamocoAccordion />
 
-      {/* Pourquoi Famoco ? */}
+      {/* Anatomie d'un terminal */}
       <section className="border-y border-border bg-card py-20 md:py-28">
         <Container>
           <SectionHeading
