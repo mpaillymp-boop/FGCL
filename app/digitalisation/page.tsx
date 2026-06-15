@@ -78,23 +78,27 @@ export default function DigitalisationPage() {
       {/* Cas d'usage */}
       <section className="border-y border-border bg-card py-20 md:py-28">
         <Container>
-          <SectionHeading
-            title="Cas d'usage"
-            lead="Daxium-Air s'adapte à une grande variété d'opérations terrain."
-          />
-          <Reveal className="mt-10 flex flex-wrap gap-3">
-            {DAXIUM_USE_CASES.map((u) => (
-              <span
-                key={u}
-                className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground"
-              >
-                {u}
-              </span>
-            ))}
-          </Reveal>
-          <Reveal delay={0.1} className="mt-12">
-            <ImageAccordion images={DAXIUM_USE_CASE_IMAGES} />
-          </Reveal>
+          <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
+            <div className="w-full md:w-1/2">
+              <SectionHeading
+                title="Cas d'usage"
+                lead="Daxium-Air s'adapte à une grande variété d'opérations terrain."
+              />
+              <Reveal className="mt-10 flex flex-wrap gap-3">
+                {DAXIUM_USE_CASES.map((u) => (
+                  <span
+                    key={u}
+                    className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground"
+                  >
+                    {u}
+                  </span>
+                ))}
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <ImageAccordion images={DAXIUM_USE_CASE_IMAGES} />
+            </div>
+          </div>
         </Container>
       </section>
 
