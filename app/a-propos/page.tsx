@@ -62,8 +62,8 @@ export default function AProposPage() {
           <Reveal delay={0.1} className="relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://res.cloudinary.com/hm3mec8bl/image/upload/v1654012381/g1lefrjyzaj0ihrmapzi.jpg"
-              alt="FGCL — solutions numériques pour les entreprises en Afrique centrale"
+              src="/logos/img1.jpeg"
+              alt="FGCL — solutions de digitalisation et terminaux sécurisés pour les opérations terrain en Afrique centrale"
               className="relative w-full rounded-2xl border border-border object-cover shadow-xl"
             />
           </Reveal>

@@ -195,9 +195,10 @@ const AetherFlowHero = () => {
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
-          className="mb-6 text-5xl font-bold tracking-tighter text-foreground md:text-7xl"
+          className="mb-6 text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl"
         >
-          Digitaliser. Optimiser. <span className="text-primary">Sécuriser.</span>
+          Digitaliser le terrain, tracer les opérations,{" "}
+          <span className="text-primary">piloter la performance</span>
         </motion.h1>
 
         <motion.p
@@ -207,9 +208,11 @@ const AetherFlowHero = () => {
           animate="visible"
           className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground"
         >
-          FGCL conçoit des applications métier sur mesure pour optimiser vos
-          processus, fiabiliser vos données et piloter votre performance en temps
-          réel.
+          FGCL accompagne les entreprises en Afrique centrale dans la
+          digitalisation de leurs processus métiers, la traçabilité et
+          l&apos;optimisation de leurs opérations terrain. Nous transformons vos
+          procédures existantes en applications mobiles simples, robustes et
+          connectées à vos indicateurs de pilotage.
         </motion.p>
 
         <motion.div
@@ -223,14 +226,14 @@ const AetherFlowHero = () => {
             href="/contact"
             className="group inline-flex items-center gap-2 rounded-[var(--radius)] bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-90 active:scale-[0.98]"
           >
-            Parlons de votre projet
+            Demander une démo
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
-            href="/services"
+            href="/a-propos"
             className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-border bg-card px-7 py-3.5 font-semibold text-foreground transition-all hover:border-primary active:scale-[0.98]"
           >
-            Découvrir nos services
+            À propos
           </Link>
         </motion.div>
       </div>

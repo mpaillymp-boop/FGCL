@@ -6,9 +6,10 @@
 
 export const NAV_LINKS = [
   { label: "Accueil", href: "/" },
-  { label: "À propos", href: "/a-propos" },
+  { label: "Digitalisation", href: "/digitalisation" },
   { label: "Produits", href: "/produits" },
-  { label: "Services", href: "/services" },
+  { label: "Infogérance", href: "/infogerance" },
+  { label: "À propos", href: "/a-propos" },
   { label: "Ressources", href: "/ressources" },
   { label: "Nous contacter", href: "/contact" },
 ] as const;
@@ -25,27 +26,38 @@ export const CONTACT = {
   lng: 9.68975,
 };
 
-// Section 2 — Nos expertises rapides
-export const EXPERTISES = [
+// Section 2 — Nos solutions & savoir-faire
+export const SOLUTIONS = [
   {
     icon: "AppWindow",
-    title: "Applications métiers",
-    text: "Des outils conçus selon vos besoins opérationnels.",
+    title: "Digitalisation des processus métiers",
+    text: "Des applications web et mobiles adaptées à vos besoins opérationnels pour simplifier et sécuriser vos processus.",
   },
   {
-    icon: "Workflow",
-    title: "Automatisation",
-    text: "Réduction des tâches manuelles et amélioration de l'efficacité.",
+    icon: "ScanLine",
+    title: "Traçabilité QR Code, RFID & NFC",
+    text: "Identifiez, contrôlez et suivez vos équipements, produits et interventions en temps réel.",
   },
   {
     icon: "BarChart3",
-    title: "Reporting & tableaux de bord",
-    text: "Des données claires pour piloter votre activité.",
+    title: "Pilotage & reporting automatisé",
+    text: "Des rapports automatisés et des tableaux de bord Power BI pour une vision claire de vos opérations.",
+  },
+] as const;
+
+// Section — Nos partenaires technologiques (présentation premium sur l'accueil)
+export const HOME_PARTNERS = [
+  {
+    name: "Daxium-Air",
+    logo: "/logos/daxium.png",
+    text: "Création d'applications métiers web et mobiles adaptées à vos processus terrain.",
+    href: "/digitalisation",
   },
   {
-    icon: "Blocks",
-    title: "Solutions No-code",
-    text: "Des solutions rapides à déployer, flexibles et évolutives.",
+    name: "Famoco",
+    logo: "/logos/famoco.png",
+    text: "Terminaux professionnels sécurisés, connectés et administrables à distance.",
+    href: "https://www.famoco.com/",
   },
 ] as const;
 
@@ -139,6 +151,57 @@ export const DIGITAL_DEFINITIONS = [
   },
 ] as const;
 
+// Digitalisation (Daxium-Air) — notre approche
+export const DIGITAL_APPROACH = [
+  { icon: "Compass", title: "Comprendre vos process", text: "Nous partons de vos procédures existantes et de vos contraintes terrain." },
+  { icon: "FileText", title: "Modéliser les formulaires", text: "Formulaires, workflows et tâches adaptés à vos métiers." },
+  { icon: "Rocket", title: "Déployer un pilote", text: "Une première version testée en conditions réelles sur le terrain." },
+  { icon: "GraduationCap", title: "Former les équipes", text: "Une prise en main rapide et durable par vos utilisateurs." },
+  { icon: "BarChart3", title: "Analyser les données", text: "Rapports automatisés et tableaux de bord pour décider." },
+  { icon: "TrendingUp", title: "Industrialiser", text: "Nous étendons progressivement la solution à vos opérations." },
+] as const;
+
+// Digitalisation (Daxium-Air) — cas d'usage
+export const DAXIUM_USE_CASES = [
+  "Contrôles QHSE",
+  "Rondes",
+  "Suivi logistique",
+  "Maintenance",
+  "Inspections",
+  "Merchandising",
+  "États des lieux",
+  "Réservations",
+  "Gestion d'incidents",
+] as const;
+
+// Digitalisation (Daxium-Air) — valeur métier
+export const DAXIUM_VALUE = [
+  "Moins de papier",
+  "Moins de ressaisie",
+  "Plus de fiabilité",
+  "Des rapports plus rapides",
+  "Une meilleure visibilité sur les opérations",
+] as const;
+
+// Digitalisation (Daxium-Air) — accompagnement FGCL
+export const DAXIUM_SUPPORT = [
+  "Cadrage",
+  "Paramétrage",
+  "Tests",
+  "Formation",
+  "Support",
+  "Évolution des formulaires et reporting",
+] as const;
+
+// Accueil — section partenaire Famoco (showcase par usage)
+export const FAMOCO_CATEGORIES = [
+  { label: "Terminaux Famoco", img: "/logos/img7.jfif" },
+  { label: "MDM", img: "/logos/img3.jfif" },
+  { label: "Biométrie", img: "/logos/img4.jfif" },
+  { label: "Paiement", img: "/logos/img5.jpg" },
+  { label: "Contrôle d'accès", img: "/logos/img6.jfif" },
+] as const;
+
 // À propos — chiffres clés
 export const KEY_FIGURES = [
   { value: 50, prefix: "+", suffix: "", label: "clients accompagnés" },
@@ -197,6 +260,28 @@ export const FAMOCO_PRODUCTS = [
     href: "https://www.famoco.com/fr/hardware/terminaux-mobiles/famoco-tab-10/",
     text: "Grand format 10 pouces pour la supervision et les tableaux de bord terrain.",
   },
+] as const;
+
+// Infogérance & infrastructure IT — services du socle historique
+export const IT_INFRA_SERVICES = [
+  { icon: "Headset", label: "Support utilisateurs" },
+  { icon: "Network", label: "Réseau" },
+  { icon: "ShieldCheck", label: "Sécurité" },
+  { icon: "Server", label: "Serveurs" },
+  { icon: "DatabaseBackup", label: "Sauvegarde" },
+  { icon: "KeyRound", label: "Licences" },
+  { icon: "MonitorSmartphone", label: "Postes de travail" },
+  { icon: "Activity", label: "Supervision" },
+  { icon: "Headphones", label: "Assistance & conseil" },
+] as const;
+
+// Infogérance & infrastructure IT — valeur
+export const IT_INFRA_VALUE = [
+  "Réactivité locale",
+  "Expertise multi-technologies",
+  "Continuité de service",
+  "Proximité terrain",
+  "Coordination avec les fournisseurs",
 ] as const;
 
 // Services IT (au-delà de la digitalisation) — présentés en cartes empilées
