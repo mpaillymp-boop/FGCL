@@ -25,27 +25,38 @@ export const CONTACT = {
   lng: 9.68975,
 };
 
-// Section 2 — Nos expertises rapides
-export const EXPERTISES = [
+// Section 2 — Nos solutions & savoir-faire
+export const SOLUTIONS = [
   {
     icon: "AppWindow",
-    title: "Applications métiers",
-    text: "Des outils conçus selon vos besoins opérationnels.",
+    title: "Digitalisation des processus métiers",
+    text: "Des applications web et mobiles adaptées à vos besoins opérationnels pour simplifier et sécuriser vos processus.",
   },
   {
-    icon: "Workflow",
-    title: "Automatisation",
-    text: "Réduction des tâches manuelles et amélioration de l'efficacité.",
+    icon: "ScanLine",
+    title: "Traçabilité QR Code, RFID & NFC",
+    text: "Identifiez, contrôlez et suivez vos équipements, produits et interventions en temps réel.",
   },
   {
     icon: "BarChart3",
-    title: "Reporting & tableaux de bord",
-    text: "Des données claires pour piloter votre activité.",
+    title: "Pilotage & reporting automatisé",
+    text: "Des rapports automatisés et des tableaux de bord Power BI pour une vision claire de vos opérations.",
+  },
+] as const;
+
+// Section — Nos partenaires technologiques (présentation premium sur l'accueil)
+export const HOME_PARTNERS = [
+  {
+    name: "Daxium-Air",
+    logo: "/logos/daxium.png",
+    text: "Création d'applications métiers web et mobiles adaptées à vos processus terrain.",
+    href: "https://www.daxium.com/",
   },
   {
-    icon: "Blocks",
-    title: "Solutions No-code",
-    text: "Des solutions rapides à déployer, flexibles et évolutives.",
+    name: "Famoco",
+    logo: "/logos/famoco.png",
+    text: "Terminaux professionnels sécurisés, connectés et administrables à distance.",
+    href: "https://www.famoco.com/",
   },
 ] as const;
 

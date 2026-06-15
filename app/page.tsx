@@ -10,7 +10,8 @@ import {
   GhostCTA,
 } from "@/components/site/primitives";
 import {
-  EXPERTISES,
+  SOLUTIONS,
+  HOME_PARTNERS,
   MISSION_CARDS,
   DIGITAL_DEFINITIONS,
   DIGITAL_BENEFITS,
@@ -22,15 +23,15 @@ export default function HomePage() {
       {/* Hero — white particle network */}
       <AetherFlowHero />
 
-      {/* Nos expertises — editorial numbered list */}
+      {/* Nos solutions & savoir-faire — editorial numbered list */}
       <section className="bg-background py-20 md:py-28">
         <Container>
           <SectionHeading
-            title="Nos expertises"
-            lead="Quatre leviers concrets pour digitaliser vos opérations et fiabiliser vos données."
+            title="Nos solutions & savoir-faire"
+            lead="Trois leviers concrets pour digitaliser, tracer et piloter vos opérations terrain."
           />
           <div className="mt-12 border-t border-border">
-            {EXPERTISES.map((e, i) => (
+            {SOLUTIONS.map((e, i) => (
               <Reveal
                 key={e.title}
                 delay={i * 0.04}
@@ -43,6 +44,70 @@ export default function HomePage() {
                 <p className="text-base leading-relaxed text-muted-foreground">
                   {e.text}
                 </p>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Pourquoi FGCL */}
+      <section className="border-y border-border bg-card py-20 md:py-28">
+        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <SectionHeading title="Pourquoi FGCL" />
+          <Reveal className="flex items-center">
+            <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Une expertise terrain, une proximité locale et des technologies
+              éprouvées pour accompagner vos projets de A à Z :{" "}
+              <span className="font-medium text-foreground">
+                cadrage, déploiement, formation, support et amélioration
+                continue.
+              </span>
+            </p>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Nos partenaires technologiques */}
+      <section className="bg-background py-20 md:py-28">
+        <Container>
+          <SectionHeading
+            title="Nos partenaires technologiques"
+            lead="Deux références complémentaires que FGCL intègre, adapte et déploie sur votre terrain."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {HOME_PARTNERS.map((p, i) => (
+              <Reveal
+                key={p.name}
+                delay={i * 0.06}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-colors hover:border-primary md:p-10"
+              >
+                <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-primary/5 transition-transform duration-500 group-hover:scale-125" />
+                <div className="relative flex h-12 items-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <h3 className="relative mt-7 text-xl font-semibold text-foreground">
+                  {p.name}
+                </h3>
+                <p className="relative mt-3 text-base leading-relaxed text-muted-foreground">
+                  {p.text}
+                </p>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+                >
+                  En savoir plus
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </a>
               </Reveal>
             ))}
           </div>
