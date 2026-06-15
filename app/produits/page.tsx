@@ -60,9 +60,6 @@ export default function ProduitsPage() {
         lead="Des appareils mobiles sécurisés pour la traçabilité, le paiement, le contrôle d'accès, la logistique et la collecte de données sur le terrain."
       />
 
-      {/* Famoco — texte + accordéon d'images */}
-      <FamocoAccordion />
-
       {/* L'expertise Famoco, déployée par FGCL — accordéon par usage */}
       <FamocoAccordion />
 
