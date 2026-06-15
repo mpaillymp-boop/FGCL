@@ -46,7 +46,7 @@ export default function DigitalisationPage() {
           <Reveal className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logos/img2.jfif"
+              src="/logos/img2.jpg"
               alt="Interface Daxium-Air : fiches, tâches, formulaires, listes, rapports et applications personnalisées"
               className="w-full object-cover"
             />
