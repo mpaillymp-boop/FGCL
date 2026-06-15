@@ -8,7 +8,7 @@ export const NAV_LINKS = [
   { label: "Accueil", href: "/" },
   { label: "Digitalisation", href: "/digitalisation" },
   { label: "Produits", href: "/produits" },
-  { label: "Services", href: "/services" },
+  { label: "Infogérance", href: "/infogerance" },
   { label: "À propos", href: "/a-propos" },
   { label: "Ressources", href: "/ressources" },
   { label: "Nous contacter", href: "/contact" },
@@ -251,6 +251,28 @@ export const FAMOCO_PRODUCTS = [
     href: "https://www.famoco.com/fr/hardware/terminaux-mobiles/famoco-tab-10/",
     text: "Grand format 10 pouces pour la supervision et les tableaux de bord terrain.",
   },
+] as const;
+
+// Infogérance & infrastructure IT — services du socle historique
+export const IT_INFRA_SERVICES = [
+  { icon: "Headset", label: "Support utilisateurs" },
+  { icon: "Network", label: "Réseau" },
+  { icon: "ShieldCheck", label: "Sécurité" },
+  { icon: "Server", label: "Serveurs" },
+  { icon: "DatabaseBackup", label: "Sauvegarde" },
+  { icon: "KeyRound", label: "Licences" },
+  { icon: "MonitorSmartphone", label: "Postes de travail" },
+  { icon: "Activity", label: "Supervision" },
+  { icon: "Headphones", label: "Assistance & conseil" },
+] as const;
+
+// Infogérance & infrastructure IT — valeur
+export const IT_INFRA_VALUE = [
+  "Réactivité locale",
+  "Expertise multi-technologies",
+  "Continuité de service",
+  "Proximité terrain",
+  "Coordination avec les fournisseurs",
 ] as const;
 
 // Services IT (au-delà de la digitalisation) — présentés en cartes empilées

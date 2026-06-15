@@ -57,7 +57,7 @@ export function HomeHero() {
           className="mt-10 flex flex-col gap-3 sm:flex-row"
         >
           <PrimaryCTA href="/contact">Parlons de votre projet</PrimaryCTA>
-          <GhostCTA href="/services">Découvrir nos services</GhostCTA>
+          <GhostCTA href="/digitalisation">Découvrir la digitalisation</GhostCTA>
         </motion.div>
       </Container>
     </section>
