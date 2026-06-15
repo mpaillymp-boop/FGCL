@@ -3,6 +3,7 @@ import { Check, ScanLine, LayoutDashboard } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { Icon } from "@/components/site/icon";
+import { ImageAccordion } from "@/components/site/image-accordion";
 import {
   Container,
   SectionHeading,
@@ -12,6 +13,7 @@ import {
 import {
   DIGITAL_APPROACH,
   DAXIUM_USE_CASES,
+  DAXIUM_USE_CASE_IMAGES,
   DAXIUM_VALUE,
   DAXIUM_SUPPORT,
 } from "@/lib/site-data";
@@ -75,30 +77,23 @@ export default function DigitalisationPage() {
 
       {/* Cas d'usage */}
       <section className="border-y border-border bg-card py-20 md:py-28">
-        <Container className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div>
-            <SectionHeading
-              title="Cas d'usage"
-              lead="Daxium-Air s'adapte à une grande variété d'opérations terrain."
-            />
-            <Reveal className="mt-10 flex flex-wrap gap-3">
-              {DAXIUM_USE_CASES.map((u) => (
-                <span
-                  key={u}
-                  className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground"
-                >
-                  {u}
-                </span>
-              ))}
-            </Reveal>
-          </div>
-          <Reveal delay={0.1} className="relative overflow-hidden rounded-2xl border border-border bg-background shadow-lg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logos/img2.jpg"
-              alt="Interface Daxium-Air : fiches, tâches, formulaires, listes, rapports et applications personnalisées"
-              className="w-full object-cover"
-            />
+        <Container>
+          <SectionHeading
+            title="Cas d'usage"
+            lead="Daxium-Air s'adapte à une grande variété d'opérations terrain."
+          />
+          <Reveal className="mt-10 flex flex-wrap gap-3">
+            {DAXIUM_USE_CASES.map((u) => (
+              <span
+                key={u}
+                className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground"
+              >
+                {u}
+              </span>
+            ))}
+          </Reveal>
+          <Reveal delay={0.1} className="mt-12">
+            <ImageAccordion images={DAXIUM_USE_CASE_IMAGES} />
           </Reveal>
         </Container>
       </section>
@@ -178,6 +173,14 @@ export default function DigitalisationPage() {
                 {s}
               </span>
             ))}
+          </Reveal>
+          <Reveal delay={0.1} className="mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/img2.jpg"
+              alt="Interface Daxium-Air : fiches, tâches, formulaires, listes, rapports et applications personnalisées"
+              className="w-full object-cover"
+            />
           </Reveal>
         </Container>
       </section>
