@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/site/navbar";
@@ -27,12 +27,17 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={openSans.variable}>
-      <body className="min-h-[100dvh] bg-background text-foreground antialiased">
+      <body className="min-h-[100dvh] overflow-x-hidden bg-background text-foreground antialiased">
         {/* Fixed grain/scrim layer, pointer-events off, never on a scroll container */}
         <div
           aria-hidden
