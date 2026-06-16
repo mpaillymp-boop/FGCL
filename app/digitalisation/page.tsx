@@ -95,7 +95,7 @@ export default function DigitalisationPage() {
                 ))}
               </Reveal>
             </div>
-            <div className="w-full md:w-1/2">
+            <div className="w-full min-w-0 md:w-1/2">
               <ImageAccordion images={DAXIUM_USE_CASE_IMAGES} />
             </div>
           </div>
