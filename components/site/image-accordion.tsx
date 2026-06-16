@@ -32,7 +32,7 @@ export function ImageAccordion({ images }: { images: readonly AccordionImage[] }
       </div>
 
       {/* Desktop : accordéon (comme Famoco) */}
-      <div className="hidden flex-row items-center justify-center gap-3 overflow-x-auto p-2 md:flex">
+      <div className="hidden flex-row items-center justify-start gap-3 overflow-x-hidden p-2 md:flex">
         {images.map((img, index) => (
           <button
             type="button"
@@ -41,7 +41,7 @@ export function ImageAccordion({ images }: { images: readonly AccordionImage[] }
             onClick={() => setActiveIndex(index)}
             aria-label={img.alt}
             className={`relative h-[420px] shrink-0 cursor-pointer overflow-hidden rounded-[var(--radius)] transition-all duration-700 ease-in-out ${
-              index === activeIndex ? "w-[340px]" : "w-[56px]"
+              index === activeIndex ? "w-[300px]" : "w-[48px]"
             }`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
